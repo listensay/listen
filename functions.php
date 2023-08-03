@@ -8,7 +8,7 @@ function themeConfig($form)
         null,
         null,
         '朋友圈头像地址',
-        '默认：/usr/themes/pyq/static/images/tx.jpg'
+        '默认：/usr/themes/listen/static/images/tx.jpg'
     );
     $form->addInput($logoUrl);
 }
