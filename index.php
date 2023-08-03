@@ -63,7 +63,7 @@ $this->need('header.php');
 
             </div>
         <?php endwhile; ?>
-        <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
+        <?php $this->pageNav() ?>
     </div>
 </main>
 <?php //$this->need('sidebar.php'); ?>

@@ -17,11 +17,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/style.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/base.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/common.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/nprogress.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/fancybox.css'); ?>">
     <script src="<?php $this->options->themeUrl('/static/js/jquery.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('/static/js/tailwindcss.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('/static/js/tailwind.config.js'); ?>"></script>
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
@@ -68,7 +67,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                                          alt="<?php $this->options->title() ?>"/>
                                 </a>
                             </div>
-                            <p class="desc">永远热爱 永远热泪盈眶</p>
+                            <p class="desc">每个人都有一片属于自己的森林</p>
                         </div>
                     </div>
                 </section>

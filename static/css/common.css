@@ -1,0 +1,42 @@
+/**
+  分页
+*/
+
+.page-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.page-navigator li {
+  margin-right: 20px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #0000003b;
+}
+
+.page-navigator li:last-child {
+  margin-right: 0;
+}
+
+.page-navigator li.current {
+  background-color: #5d5d5d;
+}
+
+.page-navigator li.current>a {
+  color: #fff;
+}
+
+.page-navigator li a {
+  display: block;
+}
+
+button, a, input, textarea {
+  outline: none;
+}

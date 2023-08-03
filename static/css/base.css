@@ -1,26 +1,39 @@
 body {
-    margin: 0;
-    padding: 0;
-    letter-spacing: 1.1px;
-    scrollbar-width: thin;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.1px;
+  background-color: #f1f5f9;
+  color: #323232;
 }
 
 @font-face {
-    font-family: 'iconfont';
-    src: url('../font/iconfont.woff2?t=1686189939224') format('woff2'),
+  font-family: 'iconfont';
+  src: url('../font/iconfont.woff2?t=1686189939224') format('woff2'),
     url('../font/iconfont.woff?t=1686189939224') format('woff'),
     url('../font/iconfont.ttf?t=1686189939224') format('truetype');
 }
 
 .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-input, textarea{
-    outline: none;
-    resize: none;
+input,
+textarea {
+  outline: none;
+  resize: none;
+}
+
+a {
+  color: #323232;
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
