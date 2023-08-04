@@ -69,7 +69,7 @@ function articleComment($article_id) {
     foreach ($result as $val){
         echo '
         <div class="comment-item">
-            <a href="' . $val['url'] . '" target="_black">' . $val['author'] . '</a>&nbsp;&nbsp;<span>'. get_commentReply_at($val['coid']) .' ' . $val['text'] . '</span>
+            <a href="' . $val['url'] . '" target="_black">' . $val['author'] . '</a>： <span class="f-thide">'. get_commentReply_at($val['coid']) .' ' . $val['text'] . '</span>
         </div>';
     }
 }

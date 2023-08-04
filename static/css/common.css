@@ -39,3 +39,13 @@
 button, a, input, textarea {
   outline: none;
 }
+
+/* 
+  文字截取
+*/
+.f-thide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

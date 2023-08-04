@@ -299,9 +299,15 @@
 }
 
 .mmui-article-list .article-cart .layout-right .article-comment .comment-item a {
-  color: #0D47A1;
+  display: inline-block;
   font-size: 14px;
+  color: #0D47A1;
+}
 
+.mmui-article-list .article-cart .layout-right .article-comment .comment-item span {
+  display: inline-block;
+  flex: 1;
+  width: 0;
 }
 
 .mmui #footer {
