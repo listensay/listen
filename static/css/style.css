@@ -623,3 +623,10 @@
 .post-content h6 {
   font-size: .85rem
 }
+
+@media (max-width: 720px) {
+  .mmui {
+    width: 100%;
+    margin: 0;
+  }
+}
