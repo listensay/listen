@@ -22,7 +22,7 @@ $this->need('header.php');
                         </div>
                         <div class="layout-right mdui-typo">
                             <div class="author">
-                                <a href="<?php $this->author->permalink(); ?>"
+                                <a href="JavaScript:;"
                                    class="name"><?php $this->author(); ?></a>
                             </div>
                             <div class="article-content">
