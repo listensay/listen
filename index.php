@@ -58,12 +58,14 @@ $this->need('header.php');
                 <?php } ?>
 
                 <?php if ($this->fields->articleType === 'sayTitleImg') { ?>
-                <!-- 没想清楚这么设计这个样式                    -->
+                <!-- TODO -->
                 <?php } ?>
 
             </div>
         <?php endwhile; ?>
-        <?php $this->pageNav() ?>
+        <!-- <?php $this->pageNav() ?> -->
+        <?php $this->pageLink('查看更多','next'); ?>
+
     </div>
 </main>
 <?php //$this->need('sidebar.php'); ?>

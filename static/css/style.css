@@ -255,11 +255,26 @@ html {
   content: none;
 }
 
+/*
+  Next Syle
+*/
+.mmui-article-list .list .next {
+  text-align: center;
+  display: block;
+  padding: .9375rem 0;
+  margin-bottom: 1.25rem;
+  font-size: .75rem;
+  background-color: aliceblue;
+}
+
+/* 
+  Next Style End
+*/
 .mmui-article-list .article-cart .layout-right .footer {
   position: relative;
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: .75rem;
   margin: 15px 0;
 }
 
