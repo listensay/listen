@@ -13,13 +13,13 @@ $this->need('header.php');
     <div class="list">
         <div>
             <h1 class="post-title" itemprop="name headline"><?php $this->title() ?></h1>
-            <div class="post-content mdui-typo">
+            <div class="post-content">
                 <?php $this->content(); ?>
-                <ul class="mdui-list links">
+                <ul class="links">
                     <?php
                     $mypattern = <<<eof
                     <a href="{url}" target="_blank" >
-                        <li class="mdui-list-item mdui-ripple">
+                        <li class="item">
                             <div class="mdui-list-item-avatar">
                               <img src="{image}"/>
                             </div>
@@ -29,13 +29,47 @@ $this->need('header.php');
                                 <span class="mdui-text-color-theme-text">{description}</span>
                               </div>
                             </div>
-                                <i class="mdui-list-item-icon mdui-icon material-icons">near_me</i>
                         </li>
                     </a>
 eof;
                     Links_Plugin::output($mypattern, 0, "");
                     ?>
                 </ul>
+                <style>
+                    .post-content .links a:hover {
+                        text-decoration: none
+                    }
+
+                    .post-content .links {
+                        margin: 0;
+                        padding: 0;
+                        list-style-type: none
+                    }
+
+                    .post-content .links .item {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                        padding: 10px;
+                        transition: 1.1s all;
+                    }
+
+                    .post-content .links .item:hover{
+                        background-color: #fff3f3;
+                        border-radius: 4px;
+                    }
+
+                    .post-content .links .item .mdui-list-item-avatar {
+                        width: 48px;
+                        margin-right: 10px
+                    }
+
+                    .post-content .links .item .mdui-list-item-avatar img{
+                        width: 100%;
+                        border-radius: 50%
+                    }
+
+                </style>
             </div>
         </div>
         <?php $this->need('comments.php'); ?>
