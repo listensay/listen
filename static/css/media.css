@@ -20,8 +20,4 @@
   .article-head .banner {
     display: none;
   }
-
-  #comments-content .comment-list .body {
-    padding: 0;
-  }
 }

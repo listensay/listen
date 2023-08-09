@@ -20,7 +20,7 @@ $this->need('header.php');
                         <div class="layout-left">
                             <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>"/>
                         </div>
-                        <div class="layout-right mdui-typo">
+                        <div class="layout-right">
                             <div class="author">
                                 <a href="JavaScript:;"
                                    class="name"><?php $this->author(); ?></a>

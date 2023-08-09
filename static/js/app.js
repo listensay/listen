@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
-  function menu() {
+  const menu = () => {
 
     // 宽度计算
     let width = 0
@@ -31,7 +31,7 @@ jQuery(document).ready(function () {
    * Function Source
    * https://www.jinjun.top/135.html
    */
-  function ajaxNext() {
+  const ajaxNext = () => {
     $('.list .next').click(function () {
       $this = $(this);
       $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
@@ -61,6 +61,32 @@ jQuery(document).ready(function () {
       return false;
     });
   }
+
+  // 更多按钮功能
+  const more = () => {
+    // 节流锁
+    let lock = true
+    $('.option .article-info').css({ 'display': 'none' })
+    $('.option').on('click', '.option-more', function () {
+      $('.article-info').next().fadeIn()
+
+      if (!lock) return
+
+      if ($(this).next().attr('class') === 'article-info') {
+        $(this).next().addClass('active')
+        $(this).next().fadeIn()
+      } else {
+        $(this).next().removeClass('active')
+        $(this).next().fadeOut()
+      }
+
+      lock = false
+      setTimeout(() => {
+        lock = true
+      }, 500)
+    })
+  }
+  more()
 
   ajaxNext()
 
