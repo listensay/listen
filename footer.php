@@ -1,12 +1,17 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <footer id="footer" class="mdui-typo">
-    <p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>">星期四Blog</a>.</p>
-    <div><a class="text hover-underline" href="https://icp.gov.moe/?keyword=200205" target="_blank">萌ICP备200205号</a>
+    <p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.</p>
+    <div>
+        <?php $this->options->footer() ?>
     </div>
 </footer>
 </div>
 </div>
 </div>
+
+<style>
+    <?php $this->options->styles() ?>
+</style>
 
 <script src="<?php $this->options->themeUrl('/static/js/pjax.js'); ?>"></script>
 <script src="<?php $this->options->themeUrl('/static/js/nprogress.js'); ?>"></script>
@@ -17,7 +22,9 @@
         fragment: '.mmui-article-list',
         timeout: 8000
     })
+    <?php $this->options->javascriptcode() ?>
 </script>
+
 <script src="<?php $this->options->themeUrl('/static/js/app.js'); ?>"></script>
 
 <?php $this->footer(); ?>

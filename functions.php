@@ -3,7 +3,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form)
 {
-    $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
+    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text(
         'logoUrl',
         null,
         null,
@@ -11,6 +11,66 @@ function themeConfig($form)
         '默认：/usr/themes/listen/static/images/tx.jpg'
     );
     $form->addInput($logoUrl);
+
+    $nickname = new Typecho_Widget_Helper_Form_Element_Text(
+        'nickname',
+        null,
+        null,
+        '昵称',
+        '比如: 星期四'
+    );
+    $form->addInput($nickname);
+
+    $userdesc = new Typecho_Widget_Helper_Form_Element_Text(
+        'userdesc',
+        null,
+        null,
+        '个性签名',
+        '比如: 每个人都有一片属于自己的森林'
+    );
+    $form->addInput($userdesc);
+
+    $bannerUrl = new Typecho_Widget_Helper_Form_Element_Text(
+        'bannerUrl',
+        null,
+        null,
+        '用户背景图url',
+        '默认：/usr/themes/listen/static/images/pic1.jpeg'
+    );
+    $form->addInput($bannerUrl);
+
+    $themeWidth = new Typecho_Widget_Helper_Form_Element_Text(
+        'themeWidth',
+        null,
+        null,
+        '主题宽度',
+        '默认：600, 默认是px单位，所以不要要输入单位'
+    );
+    $form->addInput($themeWidth);
+
+    $footer = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'footer',
+        null,
+        null,
+        '自定义底部'
+    );
+    $form->addInput($footer);
+
+    $styles = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'styles',
+        null,
+        null,
+        '自定义CSS'
+    );
+    $form->addInput($styles);
+
+    $javascriptcode = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'javascriptcode',
+        null,
+        null,
+        '自定义JavaScript'
+    );
+    $form->addInput($javascriptcode);
 }
 
 function themeFields($layout) {

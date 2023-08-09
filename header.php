@@ -32,7 +32,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <body class="bg-white">
 
 <div class="container mx-auto">
-    <div id="app" class="mmui shadow-md">
+    <div id="app" class="mmui shadow-md" style="width: <?php $this->options->themeWidth() ?>px">
         <!-- 状态栏 -->
         <div class="mmui-conainer">
             <div class="header-container">
@@ -63,16 +63,16 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                             <?php endwhile; ?>
                         </ul>
                     </nav>
-                    <div class="mmui-bg">
+                    <div class="mmui-bg" style="background-image: url(<?php $this->options->bannerUrl() ?>);">
                         <div class="user">
                             <div class="user-info">
-                                <h2 class="name">星期四</h2>
+                                <h2 class="name"><?php $this->options->nickname() ?></h2>
                                 <a class="mdui-ripple" href="<?php $this->options->siteUrl(); ?>">
                                     <img class="mdui-hoverable" src="<?php $this->options->logoUrl() ?>"
                                          alt="<?php $this->options->title() ?>"/>
                                 </a>
                             </div>
-                            <p class="desc">每个人都有一片属于自己的森林</p>
+                            <p class="desc"><?php $this->options->userdesc() ?></p>
                         </div>
                     </div>
                 </section>
