@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 .mmui {
   width: 600px;
   margin: 20px auto;
@@ -186,14 +190,14 @@
 .mmui-article-list .list .item .article-cart .layout-right .author a {
   display: inline-block;
   margin-top: 10px;
-  font-size: 17px;
-  color: #141414;
+  font-size: 15px;
+  color: rgb(91, 107, 146);
 }
 
 .mmui-article-list .list .item .article-cart .layout-right .article-content {
   margin-bottom: 15px;
   color: #424242;
-  font-size: 15px;
+  font-size: .875rem;
 }
 
 .mmui-article-list .list .item .article-cart .layout-right .article-content img {
@@ -468,7 +472,7 @@
 }
 
 .comment-respond .row .textfield {
-  width: 210px;
+  width: 175px;
   height: 100%;
   box-sizing: border-box;
   border-radius: 4px;
@@ -622,11 +626,4 @@
 
 .post-content h6 {
   font-size: .85rem
-}
-
-@media (max-width: 720px) {
-  .mmui {
-    width: 100%;
-    margin: 0;
-  }
 }

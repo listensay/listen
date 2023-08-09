@@ -50,7 +50,8 @@
                 <p>
                     <?php
                         echo get_commentReply_at($comments->coid);
-                    ?>                                   <!-- 评论@ -->
+                    ?>
+                    <!-- 评论@ -->
                     <?php $cos = preg_replace('#</?[p|P][^>]*>#','',$comments->content);echo $cos;?> <!-- 评论内容 -->
                 </p>
             </div>
@@ -97,11 +98,11 @@
                     <?php else: ?>
                     <div class="row">
                         <div class="textfield">
-                            <input class="textfield-input" type="text" name="author" id="author"  value="<?php $this->remember('mail'); ?>" placeholder="Name" required>
+                            <input class="textfield-input" type="text" name="author" id="author"  value="<?php $this->remember('author'); ?>" placeholder="Name" required>
                         </div>
                         <div class="textfield">
                             <input class="textfield-input" type="mail" name="mail" id="mail"
-                                placeholder="Email" value="<?php $this->remember('author'); ?>" required>
+                                placeholder="Email" value="<?php $this->remember('mail'); ?>" required>
                         </div>
                         <div class="textfield">
                             <input class="textfield-input" type="text" name="url" id="url"

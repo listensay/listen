@@ -8,7 +8,7 @@
  */
 $this->need('header.php');
 ?>
-<link rel="stylesheet" href="./static/css/links.css">
+<link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/links.css'); ?>">
 <main class="mmui-article-list">
     <div class="list">
         <div>
@@ -26,7 +26,7 @@ $this->need('header.php');
                             <div class="mdui-list-item-content">
                               <div class="mdui-list-item-title">{name}</div>
                               <div class="mdui-list-item-text mdui-list-item-one-line">
-                                <span class="mdui-text-color-theme-text">{description}</span>
+                                <span class="desc">{description}</span>
                               </div>
                             </div>
                         </li>

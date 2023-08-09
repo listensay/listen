@@ -16,8 +16,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/style.css'); ?>">
+    <!-- 基础CSS -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/base.css'); ?>">
+    <!-- 公共CSS -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/common.css'); ?>">
+    <!-- 媒体查询CSS -->
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/media.css'); ?>">
+    <!-- 其他CSS -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/nprogress.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/fancybox.css'); ?>">
     <script src="<?php $this->options->themeUrl('/static/js/jquery.js'); ?>"></script>
