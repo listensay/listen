@@ -8,7 +8,7 @@
  */
 $this->need('header.php');
 ?>
-
+<link rel="stylesheet" href="./static/css/links.css">
 <main class="mmui-article-list">
     <div class="list">
         <div>
@@ -35,41 +35,6 @@ eof;
                     Links_Plugin::output($mypattern, 0, "");
                     ?>
                 </ul>
-                <style>
-                    .post-content .links a:hover {
-                        text-decoration: none
-                    }
-
-                    .post-content .links {
-                        margin: 0;
-                        padding: 0;
-                        list-style-type: none
-                    }
-
-                    .post-content .links .item {
-                        display: flex;
-                        align-items: center;
-                        margin-bottom: 10px;
-                        padding: 10px;
-                        transition: 1.1s all;
-                    }
-
-                    .post-content .links .item:hover{
-                        background-color: #fff3f3;
-                        border-radius: 4px;
-                    }
-
-                    .post-content .links .item .mdui-list-item-avatar {
-                        width: 48px;
-                        margin-right: 10px
-                    }
-
-                    .post-content .links .item .mdui-list-item-avatar img{
-                        width: 100%;
-                        border-radius: 50%
-                    }
-
-                </style>
             </div>
         </div>
         <?php $this->need('comments.php'); ?>
