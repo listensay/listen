@@ -44,7 +44,7 @@ function themeConfig($form)
         null,
         null,
         '主题宽度',
-        '默认：600, 默认是px单位，所以不要要输入单位'
+        '默认宽度：600, 默认是px单位，所以不要要输入单位'
     );
     $form->addInput($themeWidth);
 
@@ -77,7 +77,7 @@ function themeFields($layout) {
     // 文章style
     $articleType= new Typecho_Widget_Helper_Form_Element_Select('articleType',array(
         'say' => '默认样式（文章+标题）',
-        'sayTitleImg' => '文章+(title + 图文)',
+        'sayTitleImg' => '九宫格样式',
     ), '0','文章类型','文章Style');
     $layout->addItem($articleType);
 
