@@ -27,7 +27,7 @@
 
 .post-content .links .item .mdui-list-item-avatar img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .post-content .links .item .desc {
