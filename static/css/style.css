@@ -200,6 +200,30 @@ html {
   font-size: .875rem;
 }
 
+/* 
+  九宫格
+*/
+.article-cart .layout-right .article-content .article-content-pic {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -2.5px;
+}
+
+.article-cart .layout-right .article-content .article-content-pic-item {
+  width: 32.222222%;
+  margin: 2.5px;
+}
+
+.article-cart .layout-right .article-content .article-content-pic-item-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 
+  九宫格 END
+*/
+
 .mmui-article-list .list .item .article-cart .layout-right .article-content img {
   max-width: 100%;
 }
@@ -407,6 +431,14 @@ html {
   color: #000;
   text-decoration: none;
   font-style: normal;
+}
+
+.article-head .post-meta li {
+  margin-right: 10px;
+}
+
+.article-head .post-title {
+  margin: 10px 0;
 }
 
 /**

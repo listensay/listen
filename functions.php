@@ -112,6 +112,17 @@ function get_commentReply_at($coid)
     }
 }
 
+/**
+ * 获取文章图片
+ * https://www.typecho.wiki/1770.html
+ */
+function get_postthumb($thumbThis)
+{
+    preg_match_all( "/<[img|IMG].*?src=[\'|\"](.*?)[\'|\"].*?[\/]?>/", $thumbThis->content, $matches );  //通过正则式获取图片地址
+    if(isset($matches[1][0])){
+        return $matches[1];
+    }
+}
 
 // 获取评论信息
 function articleComment($article_id) {
