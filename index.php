@@ -98,7 +98,7 @@ $this->need('header.php');
                                                 echo '<a href="'.$url.'" class="article-content-pic-item" data-fancybox="gallery" style="width: 48.888%" /><img class="article-content-pic-item-photo" src="' .$url. '""></a>';
                                                 $count++;
                                                 if ($count >= 9) {
-                                                    break;  // 当计数器大于等于9时跳出循环
+                                                    break;
                                                 }
                                             }
                                         } else {
