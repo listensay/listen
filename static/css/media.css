@@ -20,4 +20,14 @@
   .article-head .banner {
     display: none;
   }
+
+  .article-cart {
+    position: relative;
+  }
+
+  .article-cart .layout-right .author {
+    position: absolute;
+    top: 15px;
+    left: 55px;
+  }
 }
