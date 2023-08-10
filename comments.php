@@ -31,7 +31,7 @@
                 <div class="left">
 
                     <div class="author">
-                        <img alt="<?php $comments->author(false); ?>" src="<?php echo $avatar ?>" class="avatar "/>
+                        <img alt="<?php $comments->author(false); ?>" src="<?php echo $avatar ?>" class="avatar"/>
                         <div class="info">
                             <div>
                                 <a href="<?php $comments->url(); ?>">

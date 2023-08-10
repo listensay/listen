@@ -522,26 +522,16 @@ html {
 }
 
 /* 
-  回复线
+  TODO 回复
 */
 
-#comments-content .comment_body {
-  position: relative;
-}
-
-#comments-content .comment .comment_body:last-of-type::after {
-  height: 0;
-  background-color: #fff;
-  z-index: 0;
-}
-
-#comments-content .children .comment_body::after {
+#comments-content .comment-list .children::after {
   content: '';
   position: absolute;
   width: 2px;
-  height: 100%;
+  height: calc(100% - 80px);
   background-color: #3f3f3f;
-  top: 50px;
+  top: 0;
   left: 24.3px;
   z-index: 1;
 }
