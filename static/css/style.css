@@ -522,16 +522,26 @@ html {
 }
 
 /* 
-  TODO 回复线有问题
+  回复线
 */
 
-#comments-content .comment-list .children::after {
+#comments-content .comment_body {
+  position: relative;
+}
+
+#comments-content .comment .comment_body:last-of-type::after {
+  height: 0;
+  background-color: #fff;
+  z-index: 0;
+}
+
+#comments-content .children .comment_body::after {
   content: '';
   position: absolute;
   width: 2px;
-  height: calc(100% - 80px);
+  height: 100%;
   background-color: #3f3f3f;
-  top: 0;
+  top: 50px;
   left: 24.3px;
   z-index: 1;
 }
