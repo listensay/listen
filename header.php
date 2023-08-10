@@ -32,7 +32,18 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <body class="bg-white">
 
 <div class="container mx-auto">
-    <div id="app" class="mmui shadow-md" style="width: <?php $this->options->themeWidth() ?>px">
+    <style>
+        .mmui {
+            width: <?php $this->options->themeWidth() ?>
+        }
+        @media (max-width: 720px) {
+            .mmui {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+    <div id="app" class="mmui shadow-md">
         <!-- 状态栏 -->
         <div class="mmui-conainer">
             <div class="header-container">
