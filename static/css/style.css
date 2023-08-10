@@ -513,7 +513,7 @@ html {
 }
 
 #comments-content .comment-list .body {
-  padding: 0 60px;
+  padding-left: 60px;
 }
 
 #comments-content .comment-list .body a {
@@ -521,15 +521,19 @@ html {
   color: #0a0a0a;
 }
 
+/* 
+  TODO 回复线有问题
+*/
+
 #comments-content .comment-list .children::after {
   content: '';
   position: absolute;
   width: 2px;
-  height: 168px;
+  height: calc(100% - 80px);
   background-color: #3f3f3f;
   top: 0;
   left: 24.3px;
-  z-index: 9;
+  z-index: 1;
 }
 
 .comment-respond {
