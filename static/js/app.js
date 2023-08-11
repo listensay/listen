@@ -62,36 +62,44 @@ jQuery(document).ready(function () {
     });
   }
 
-  // 更多按钮功能
-  const more = () => {
-    // 节流锁
-    let lock = true
+  // 更多按钮功能 TODO
+  // const more = () => {
+  //   // 节流锁
+  //   let lock = true
 
-    // $('.option .article-info').css({ 'display': 'none' })
-    $('.option').on('click', '.option-more', function () {
+  //   // $('.option .article-info').css({ 'display': 'none' })
+  //   $('.option').on('click', '.option-more', function () {
 
-      // 拿到兄弟元素
-      $(this).siblings().toggleClass('active')
-      // $(this).next().fadeIn()
+  //     // 拿到兄弟元素
+  //     $(this).siblings().toggleClass('active')
+  //     // $(this).next().fadeIn()
 
-      if (!lock) return
+  //     if (!lock) return
 
-      // if ($(this).next().attr('class') === 'article-info') {
-      //   $(this).next().addClass('active')
-      //   $(this).next().fadeIn()
-      // } else {
-      //   $(this).next().removeClass('active')
-      //   $(this).next().fadeOut()
-      // }
+  //     // if ($(this).next().attr('class') === 'article-info') {
+  //     //   $(this).next().addClass('active')
+  //     //   $(this).next().fadeIn()
+  //     // } else {
+  //     //   $(this).next().removeClass('active')
+  //     //   $(this).next().fadeOut()
+  //     // }
 
-      lock = false
-      setTimeout(() => {
-        lock = true
-      }, 500)
+  //     lock = false
+  //     setTimeout(() => {
+  //       lock = true
+  //     }, 500)
 
+  //   })
+  // }
+  // more()
+
+  const headerComment = () => {
+    $('.header-comment').on('click', function () {
+      $('.header-comment-content').fadeToggle()
     })
   }
-  more()
+
+  headerComment()
 
   ajaxNext()
 

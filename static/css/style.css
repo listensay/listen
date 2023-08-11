@@ -5,13 +5,13 @@ html {
 .mmui {
   width: 600px;
   margin: 20px auto;
-  overflow: hidden;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
 /* 主体内容 */
 .mmui .mmui-conainer {
+  position: relative;
   background-color: #fff;
 }
 
@@ -38,10 +38,12 @@ html {
 }
 
 .header-bar .layout {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
 }
 
 .header-bar .layout span {
