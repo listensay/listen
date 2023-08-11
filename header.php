@@ -53,7 +53,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
         <div class="header-comment-content">
           <div class="head">消息</div>
           <ul class="list">
-            <?php \Widget\Comments\Recent::alloc()->to($comments); ?>
+            <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
             <?php $i = 0;
                 while ($i++ != 10 && $comments->next()): 
             ?>
