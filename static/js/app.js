@@ -32,7 +32,7 @@ jQuery(document).ready(function () {
    * https://www.jinjun.top/135.html
    */
   const ajaxNext = () => {
-    $('.list .next').click(function () {
+    $('.next').click(function () {
       $this = $(this);
       $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
       var href = $this.attr('href'); //获取下一页的链接地址
@@ -46,10 +46,14 @@ jQuery(document).ready(function () {
             //如果发生错误怎么处理
           },
           success: function (data) { //请求成功
-            $this.removeClass('loading').text('点击查看更多'); //移除loading属性
-            var $res = $(data).find('.list .item'); //从数据中挑出文章数据，请根据实际情况更改
+            $this.removeClass('loading').text('查看更多'); //移除loading属性
+
+            var $res = $(data).find('.mmui-article-list .list .item'); //从数据中挑出文章数据，请根据实际情况更改
+
             $('.mmui-article-list .list').append($res.fadeIn(500)); //将数据加载加进posts-loop的标签中。
+
             var newhref = $(data).find('.next').attr('href'); //找出新的下一页链接
+
             if (newhref != undefined) {
               $('.next').attr('href', newhref);
             } else {
@@ -106,6 +110,8 @@ jQuery(document).ready(function () {
     .on('pjax:send', function () {
       //加载动画效果开始
       NProgress.start();
+      ajaxNext()
+
       // ajaxcomments()
     }).on('pjax:complete', function () {
       //加载动画效果结束

@@ -158,7 +158,6 @@ html {
 }
 
 .mmui-article-list {
-  display: flex;
   margin-top: 80px;
   overflow: auto;
 }
@@ -287,14 +286,15 @@ html {
 /*
   Next Syle
 */
-.mmui-article-list .list .next {
-  text-align: center;
+.mmui-article-list .next {
   display: block;
   padding: .9375rem 0;
+  margin: 0 1.875rem;
   margin-bottom: 1.25rem;
+  color: #fff;
   font-size: .75rem;
+  text-align: center;
   background-color: #2196F3;
-  color: #fff
 }
 
 /* 
