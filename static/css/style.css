@@ -514,6 +514,7 @@ html {
 
 #comments-content .comment-list .body {
   padding-left: 60px;
+  overflow-wrap: anywhere;
 }
 
 #comments-content .comment-list .body a {
