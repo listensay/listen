@@ -107,15 +107,15 @@ jQuery(document).ready(function () {
     .on('pjax:send', function () {
       //加载动画效果开始
       NProgress.start();
-      ajaxcomments()
+      // ajaxcomments()
 
     }).on('pjax:complete', function () {
       //加载动画效果结束
       NProgress.done();
-      ajaxcomments()
+      // ajaxcomments()
     }).on('pjax:end', function () {
       // pjax结束时运行代码
       $('.mmui-user-card .menu').fadeOut()
-      ajaxcomments()
+      // ajaxcomments()
     })
 })
