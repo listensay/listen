@@ -1,7 +1,8 @@
+import './jquery.js';
 /**
  * Header 导航栏
  */
-export const menu = () => {
+export function menu() {
   // 宽度计算
   let width = 0
   let result = $('.mmui-user-card>.menu>.menu-list .item').each(function (index, item) {
@@ -31,9 +32,9 @@ export const menu = () => {
  * Function Source
  * https://www.jinjun.top/135.html
  */
-export const ajaxNext = () => {
+export function ajaxNext() {
   $('.next').click(function () {
-    $this = $(this);
+    let $this = $(this);
     $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
     var href = $this.attr('href'); //获取下一页的链接地址
     if (href != undefined) { //如果地址存在
@@ -69,7 +70,7 @@ export const ajaxNext = () => {
 /**
  * Header 导航栏最新评论打开关闭功能
  */
-export const headerComment = () => {
+export function headerComment() {
   $('.header-comment').on('click', function () {
     $('.header-comment-content').fadeToggle()
   })
@@ -78,7 +79,7 @@ export const headerComment = () => {
 /**
  *  更多按钮功能 TODO
  */
-export const more = () => {
+export function more() {
   // 节流锁
   let lock = true
 
@@ -103,6 +104,5 @@ export const more = () => {
     setTimeout(() => {
       lock = true
     }, 500)
-
   })
 }
