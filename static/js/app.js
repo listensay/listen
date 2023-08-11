@@ -61,6 +61,7 @@ jQuery(document).ready(function () {
       return false;
     });
   }
+  ajaxNext()
 
   // 更多按钮功能 TODO
   // const more = () => {
@@ -101,18 +102,16 @@ jQuery(document).ready(function () {
 
   headerComment()
 
-  ajaxNext()
-
   $(document)
     .on('pjax:send', function () {
       //加载动画效果开始
       NProgress.start();
       // ajaxcomments()
-
     }).on('pjax:complete', function () {
       //加载动画效果结束
       NProgress.done();
       // ajaxcomments()
+      ajaxNext()
     }).on('pjax:end', function () {
       // pjax结束时运行代码
       $('.mmui-user-card .menu').fadeOut()
