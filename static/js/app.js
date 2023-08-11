@@ -116,7 +116,7 @@ jQuery(document).ready(function () {
     }).on('pjax:end', function () {
       // pjax结束时运行代码
       $('.mmui-user-card .menu').fadeOut()
-      $('.header-comment-content').fadeIn()
+      $('.header-comment-content').fadeOut()
       // ajaxcomments()
     })
 })
