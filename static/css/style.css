@@ -28,6 +28,12 @@ html {
   More Button End
 */
 }
+@media (max-width: 720px) {
+  .mmui {
+    width: 100%;
+    margin: 0;
+  }
+}
 .mmui .mmui-conainer {
   position: relative;
   background-color: #fff;
@@ -167,6 +173,12 @@ html {
 .mmui .mmui-article-list .list .item .article-cart {
   display: flex;
 }
+@media (max-width: 720px) {
+  .mmui .mmui-article-list .list .item .article-cart {
+    position: relative;
+    display: block;
+  }
+}
 .mmui .mmui-article-list .list .item .article-cart .layout-left img {
   width: 50px;
   border-radius: 6px;
@@ -176,6 +188,13 @@ html {
   flex: 1;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
+}
+@media (max-width: 720px) {
+  .mmui .article-cart .layout-right .author {
+    position: absolute;
+    top: 15px;
+    left: 55px;
+  }
 }
 .mmui .mmui-article-list .list .item .article-cart .layout-right .author a {
   display: inline-block;
@@ -353,6 +372,11 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (max-width: 720px) {
+  .article-head .banner {
+    display: none;
+  }
+}
 .article-head .post-meta {
   display: flex;
   list-style: none;
@@ -463,11 +487,22 @@ html {
   justify-content: space-between;
   margin-bottom: 10px;
 }
+@media (max-width: 720px) {
+  .comment-respond .row {
+    display: block;
+  }
+}
 .comment-respond .row .textfield {
   width: 175px;
   height: 100%;
   box-sizing: border-box;
   border-radius: 4px;
+}
+@media (max-width: 720px) {
+  .comment-respond .row .textfield {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .comment-respond .row .textfield-textarea {
   width: 100%;

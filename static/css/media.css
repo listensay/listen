@@ -1,12 +1,5 @@
 @media (max-width: 720px) {
-  .mmui {
-    width: 100%;
-    margin: 0;
-  }
 
-  .mmui-article-list .list .item .article-cart {
-    display: block;
-  }
 
   .comment-respond .row {
     display: block;
