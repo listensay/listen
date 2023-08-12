@@ -27,6 +27,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
   <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/nprogress.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('/static/css/fancybox.css'); ?>">
   <script src="<?php $this->options->themeUrl('/static/js/jquery.js'); ?>"></script>
+
   <!-- 通过自有函数输出HTML头部信息 -->
   <?php $this->header(); ?>
 </head>
