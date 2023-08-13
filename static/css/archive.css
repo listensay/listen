@@ -1,0 +1,50 @@
+.archives .archives-list {
+  padding: 0;
+  list-style: none;
+}
+.archives .archives-list a:hover {
+  text-decoration: none;
+}
+.archives .archives-list .archives-item {
+  margin-bottom: 1.25rem;
+}
+.archives .archives-list .archive-item {
+  margin-bottom: 1.25rem;
+}
+.archives .archives-list .archive-item a {
+  display: flex;
+}
+.archives .archives-list .archive-item a .timer {
+  width: 90px;
+}
+.archives .archives-list .archive-item a .timer .day {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.archives .archives-list .archive-item a .timer .month {
+  font-size: 0.75rem;
+}
+.archives .archives-list .archive-item a .photo {
+  margin-right: 0.625rem;
+}
+.archives .archives-list .archive-item a .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.archives .archives-list .archive-item a .info p {
+  display: block;
+  width: 340px;
+  font-size: 14px;
+  text-wrap: wrap;
+  text-decoration: none;
+}
+.archives .archives-list .archive-item a .text {
+  flex: 1;
+  padding: 0.3125rem 0.625rem;
+  background-color: #eee;
+  font-size: 0.75rem;
+}
+.archives .archives-year {
+  margin-bottom: 40px;
+}

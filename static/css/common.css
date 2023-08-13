@@ -80,3 +80,61 @@ textarea {
   background-color: #fff;
   transform: rotate(45deg);
 }
+/*
+  Photo
+*/
+.photo {
+  width: 100px;
+  height: 100px;
+}
+.photo .photo-container {
+  display: grid;
+  grid-gap: 1px 1px;
+  overflow: hidden;
+}
+.photo .photo-container .photo-item {
+  width: 100%;
+  height: 100%;
+}
+.photo .photo-container .photo-item-2 {
+  height: 100%;
+}
+.photo .photo-1 {
+  height: 100%;
+}
+.photo .photo-2 {
+  height: 100%;
+  position: relative;
+}
+.photo .photo-2 .photo-item {
+  position: absolute;
+}
+.photo .photo-2 .photo-item:first-child {
+  width: 50%;
+  left: 0;
+  bottom: 0;
+}
+.photo .photo-2 .photo-item:last-child {
+  width: 50%;
+  right: 0;
+  bottom: 0;
+}
+.photo .photo-3 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo .photo-3 .photo-item:nth-child(1) {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+.photo .photo-4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo .scale {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
