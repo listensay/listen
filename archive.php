@@ -68,7 +68,7 @@ $this->need('header.php'); ?>
                             </div>
                             <div class="info">
                                 <p>'. mb_substr(strip_tags($archives->content), 0, 50, 'utf-8') .'...</p>
-                                <span>共 '.count($imgs).' 张</span>
+                                <span class="number">共 '.count($imgs).' 张</span>
                             </div>
                             </a>
                         </li>

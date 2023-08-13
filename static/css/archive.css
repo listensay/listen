@@ -35,9 +35,13 @@
 .archives .archives-list .archive-item a .info p {
   display: block;
   width: 340px;
-  font-size: 14px;
+  font-size: 12px;
   text-wrap: wrap;
   text-decoration: none;
+  margin: 0;
+}
+.archives .archives-list .archive-item a .info .number {
+  font-size: 12px;
 }
 .archives .archives-list .archive-item a .text {
   flex: 1;
