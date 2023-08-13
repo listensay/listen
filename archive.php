@@ -67,7 +67,7 @@ $this->need('header.php'); ?>
                                 </div>
                             </div>
                             <div class="info">
-                                <p>'. mb_substr(strip_tags($archives->content), 0, 160, 'utf-8') .'...</p>
+                                <p>'. mb_substr(strip_tags($archives->content), 0, 100, 'utf-8') .'...</p>
                                 <span>共 '.count($imgs).' 张</span>
                             </div>
                             </a>
@@ -81,7 +81,7 @@ $this->need('header.php'); ?>
                                 <div class="timer">
                                     <span class="day">'.date('d',$archives->created).'</span><span class="month">'. $mon .'月</span>
                                 </div>
-                                <div class="text">'. mb_substr(strip_tags($archives->content), 0, 160, 'utf-8') .'...</div>
+                                <div class="text">'. mb_substr(strip_tags($archives->content), 0, 100, 'utf-8') .'...</div>
                             </a>
                         </li>';
                     }
