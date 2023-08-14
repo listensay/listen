@@ -151,7 +151,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
               <div class="user">
                 <div class="user-info">
                   <h2 class="name"><?php $this->options->nickname() ?></h2>
-                  <a class="mdui-ripple" href="<?php $this->options->siteUrl(); ?>/archives.html">
+                  <a class="mdui-ripple" href="<?php $this->options->siteUrl(); ?>archives.html">
                     <img class="mdui-hoverable" src="<?php $this->options->logoUrl() ?>"
                       alt="<?php $this->options->title() ?>" />
                   </a>

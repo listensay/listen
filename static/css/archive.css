@@ -38,6 +38,10 @@
 .archives .archives-list .archive-item .item-base {
   display: flex;
 }
+.archives .archives-list .archive-item .item-base a {
+  display: block;
+  width: 100%;
+}
 .archives .archives-list .archive-item .item-base .text {
   flex: 1;
   padding: 0.3125rem 0.625rem;

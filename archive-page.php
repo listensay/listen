@@ -81,7 +81,9 @@ $this->need('header.php'); ?>
                                 <div class="timer">
                                     <span class="day">'.date('d',$archives->created).'</span><span class="month">'. $mon .'月</span>
                                 </div>
-                                <div class="text">'. mb_substr(strip_tags($archives->content), 0, 30, 'utf-8') .'...</div>
+                                <a href="'.$archives->permalink .'">
+                                    <div class="text">'. mb_substr(strip_tags($archives->content), 0, 30, 'utf-8') .'...</div>
+                                </a>
                             </div>
                         </li>';
                     }
