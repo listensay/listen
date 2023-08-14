@@ -40,6 +40,7 @@ html {
   background-color: #fff;
 }
 .mmui .header-container {
+  position: relative;
   box-sizing: border-box;
 }
 .mmui .mmui-menu {
@@ -52,11 +53,19 @@ html {
   box-shadow: 0 2px 4px #00000014;
 }
 .mmui .header-bar {
+  position: fixed;
   display: flex;
   align-items: center;
+  width: 600px;
   height: 55px;
-  padding: 0 25px;
-  background-color: #fff;
+  padding: 0 10px;
+  transition: 0.6s all;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.mmui .header-bar .iconfont {
+  font-size: 20px;
+  cursor: pointer;
 }
 .mmui .header-bar .layout {
   position: relative;
@@ -65,15 +74,37 @@ html {
   align-items: center;
   width: 100%;
 }
+.mmui .header-bar .layout a {
+  color: #fff;
+}
+.mmui .header-bar .layout .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mmui .header-bar .layout .right .item {
+  margin-right: 20px;
+}
+.mmui .header-bar .layout .left .back {
+  display: block;
+  font-size: 23px;
+  transform: rotate(270deg);
+  font-weight: bold;
+}
+.mmui .header-bar.active {
+  background-color: #fff;
+  top: 0;
+  border-bottom: 1px solid #eee;
+  z-index: 999;
+}
+.mmui .header-bar.active a {
+  color: #323232;
+}
 .mmui .header-bar .layout span {
   margin-right: 5px;
 }
 .mmui .header-bar .layout span:last-child {
   margin-right: 0;
-}
-.mmui .header-bar .iconfont {
-  font-size: 17px;
-  cursor: pointer;
 }
 .mmui .mmui-user-card {
   position: relative;
@@ -81,7 +112,7 @@ html {
 }
 .mmui .mmui-user-card > .menu {
   position: absolute;
-  top: 0;
+  top: 55px;
   height: 48px;
   width: 100%;
   padding: 0 25px;
@@ -122,7 +153,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #8c8c8ca1 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.17) 0, #8c8c8c5c 100%);
 }
 .mmui .mmui-user-card .mmui-bg .user {
   display: flex;
@@ -144,6 +175,7 @@ html {
   font-weight: normal;
   color: #fff;
   font-size: 20px;
+  text-shadow: 0 0 1px #000000a8;
 }
 .mmui .mmui-user-card .mmui-bg .user .user-info a {
   border-radius: 6px;

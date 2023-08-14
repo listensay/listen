@@ -40,6 +40,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
       width: <?php $this->options->themeWidth() ?>
     }
 
+
+    .mmui .header-bar {
+      width: <?php $this->options->themeWidth() ?>
+    }
+
     @media (max-width: 720px) {
       .mmui {
         width: 100%;
@@ -50,18 +55,50 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
     <div id="app" class="mmui shadow-md">
       <!-- 状态栏 -->
       <div class="mmui-conainer">
-        <!-- 评论 -->
-        <div class="header-comment-content">
-          <div class="head">消息</div>
-          <ul class="list">
-            <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
-            <?php $i = 0;
+        <div class="header-container">
+          <header class="header-bar">
+            <div class="layout">
+              <div class="left">
+                <!-- 菜单 -->
+                <!-- <a href="javascript:;" id="menu-active">
+                  <span class="iconfont" style="font-size: 28px;">&#xe668;</span>
+                </a> -->
+
+                <?php
+                  // 是首页
+                  if(!$this->is('index')):
+                ?>
+                <a href="<?php $this->options->siteUrl(); ?>" class="item back">
+                  <span class="iconfont" style="font-size: 20px;">&#xe60b; </span>
+                </a>
+                <?php endif; ?>
+
+              </div>
+              <div class="right">
+                <a href="<?php $this->options->siteUrl(); ?>links.html" class="item">
+                  <span class="iconfont" style="
+                      font-size: 24px;
+                      position: relative;
+                  "></span>
+                </a>
+                <a href="javascript:;" class="item header-comment">
+                  <span class="iconfont">&#xe607;</span>
+                </a>
+                <!-- <span class="iconfont">&#xe695;</span> -->
+              </div>
+            </div>
+            <!-- 评论 -->
+            <div class="header-comment-content">
+              <div class="head">消息</div>
+              <ul class="list">
+                <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+                <?php $i = 0;
                 while ($i++ != 10 && $comments->next()): 
             ?>
-            <li class="item">
-              <a class="item-content" href="<?php $comments->permalink(); ?>">
-                <div class="avatar">
-                  <?php
+                <li class="item">
+                  <a class="item-content" href="<?php $comments->permalink(); ?>">
+                    <div class="avatar">
+                      <?php
                     $email = $comments->mail;
                     if(preg_match('|^[1-9]\d{4,10}@qq\.com$|i',$email)){
                         $qqnumber = explode("@",$email);
@@ -73,42 +110,29 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                     }
                     echo '<img src=' . $avatar . '>';
                   ?>
-                </div>
-                <div class="content">
-                  <div class="title"><?php $comments->author(false); ?></div>
-                  <div class="message f-thide">
-                    <span>
-                      <?php
+                    </div>
+                    <div class="content">
+                      <div class="title"><?php $comments->author(false); ?></div>
+                      <div class="message f-thide">
+                        <span>
+                          <?php
                           echo get_commentReply_at($comments->coid);
                       ?>
-                      <!-- 评论@ -->
-                      <?php $cos = preg_replace('#</?[p|P][^>]*>#', '', $comments->content); echo $cos; ?>
-                      <!-- 评论内容 -->
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <?php endwhile; ?>
-          </ul>
-        </div>
-        <div class="header-container">
-          <header class="header-bar">
-            <div class="layout">
-              <div class="left">
-                <a href="javascript:;" id="menu-active"><span class="iconfont"
-                    style="font-size: 28px;">&#xe668;</span></a>
-              </div>
-              <div class="right">
-                <a href="javascript:;" class="header-comment">
-                  <span class="iconfont">&#xe607;</span>
-                </a>
-                <!-- <span class="iconfont">&#xe695;</span> -->
-              </div>
+                          <!-- 评论@ -->
+                          <?php $cos = preg_replace('#</?[p|P][^>]*>#', '', $comments->content); echo $cos; ?>
+                          <!-- 评论内容 -->
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <?php endwhile; ?>
+              </ul>
             </div>
           </header>
+
           <section class="mmui-user-card">
-            <nav class="menu  overflow-x-auto" style="display: none">
+            <!-- <nav class="menu  overflow-x-auto" style="display: none">
               <ul class="menu-list">
                 <li class="item">
                   <a href="<?php $this->options->siteUrl(); ?>">首页</a>
@@ -122,12 +146,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                 </li>
                 <?php endwhile; ?>
               </ul>
-            </nav>
+            </nav> -->
             <div class="mmui-bg" style="background-image: url(<?php $this->options->bannerUrl() ?>);">
               <div class="user">
                 <div class="user-info">
                   <h2 class="name"><?php $this->options->nickname() ?></h2>
-                  <a class="mdui-ripple" href="<?php $this->options->siteUrl(); ?>">
+                  <a class="mdui-ripple" href="<?php $this->options->siteUrl(); ?>/archives.html">
                     <img class="mdui-hoverable" src="<?php $this->options->logoUrl() ?>"
                       alt="<?php $this->options->title() ?>" />
                   </a>

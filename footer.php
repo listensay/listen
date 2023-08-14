@@ -20,8 +20,8 @@
 
 <script>
 $(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"], a[no-pjax])', {
-  container: '.mmui-article-list',
-  fragment: '.mmui-article-list',
+  container: '.mmui-conainer',
+  fragment: '.mmui-conainer',
   timeout: 8000
 })
 </script>

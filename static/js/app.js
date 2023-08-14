@@ -112,6 +112,34 @@ jQuery(document).ready(function () {
   ajaxNext()
   headerComment()
 
+  function isInViewport(dom) {
+    // 兼容写法
+    let viewPortHeight = window.innerHeight || documentElement.clientHeight
+    let viewPortWidth = window.innerWidth || documentElement.clientWidth
+    let {
+      top,
+      left,
+      bottom,
+      right
+    } = dom.getBoundingClientRect()
+
+    return (
+      top >= 0 &&
+      left >= 0 &&
+      bottom <= viewPortHeight &&
+      right <= viewPortWidth
+    )
+  }
+
+  $(window).scroll(function (event) {
+    if (isInViewport(document.querySelector('.mmui-bg')) != true) {
+      $('.header-bar').addClass('active')
+    } else {
+      $('.header-bar').removeClass('active')
+    }
+  });
+
+
   $(document)
     .on('pjax:send', function () {
       //加载动画效果开始
@@ -121,6 +149,7 @@ jQuery(document).ready(function () {
     }).on('pjax:complete', function () {
       //加载动画效果结束
       NProgress.done();
+      headerComment()
       // ajaxcomments()
       ajaxNext()
     }).on('pjax:end', function () {
