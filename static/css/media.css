@@ -1,5 +1,13 @@
 @media (max-width: 720px) {
 
+  .mmui {
+    width: 100%;
+    margin: 0;
+  }
+
+  .mmui .header-bar {
+    width: 100%
+  }
 
   .comment-respond .row {
     display: block;

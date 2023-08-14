@@ -50,6 +50,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
         width: 100%;
         margin: 0;
       }
+
+      .mmui .header-bar {
+        width: 100%
+      }
     }
     </style>
     <div id="app" class="mmui shadow-md">
