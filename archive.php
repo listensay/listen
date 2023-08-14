@@ -1,98 +1,150 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php
-/**
- * 文章归档
- *
- * @package custom
- */
-$this->need('header.php'); ?>
+<?php $this->need('header.php'); ?>
+
 <main class="mmui-article-list">
   <div class="list">
-    <div>
-      <h1 class="post-title" itemprop="name headline"><?php $this->title() ?></h1>
-      <div class="post-content">
-        <?php 
-            function postAllImgs($archive) {
-                $pattern = '/<img[^>]*src=["\']?([^"\'>]*)["\']?[^>]*>/i';
-                preg_match_all($pattern, $archive->content, $matches);
-                return $matches[1]; // 返回所有匹配项，是一个数组
-            }
-            function imagesNum($imgs) {
-                if ($imgs >= 5) {
-                    return 4;
-                }
-                return $imgs;
-            }
-        $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->to($archives);
-            $year=0; $mon=0; $i=0; $j=0;
-            $output = '<div class="archives">';
-            while($archives->next()):
-                $year_tmp = date('Y',$archives->created);
-                $mon_tmp = date('m',$archives->created);
-                $y=$year; $m=$mon;   
-                if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';
-                if ($year != $year_tmp && $year > 0) $output .= '</ul>';
-                if ($year != $year_tmp) {   
-                    $year = $year_tmp;   
-                    $output .= '<h3 class="archives-year">'. $year .' 年</h3><ul class="archives-list">'; //输出年份   
-                }
-                if ($mon != $mon_tmp) {
-                    $mon = $mon_tmp;
-                    $output .= '<li class="archives-item"><ul class="archives-list">'; //输出月份   
-                }
-                $imgs = postAllImgs($archives);
-                if(count($imgs) > 0){
-                    // 文章有图片
-                    $output .= '
-                    <li class="archive-item">
-                        <a href="'.$archives->permalink .'">
-                            <div class="timer">
-                                <span class="day">'.date('d',$archives->created).'</span><span class="month">'. $mon .'月</span>
-                            </div>
-                            <div class="photo">
-                                <div class="photo-container photo-' .imagesNum(count($imgs)). '">';
-                                    $i = 0;
-                                    foreach($imgs as $img) {
-                                        $i++;
-                                        if($i >= 5) {
-                                            break;
-                                        }
-                                        $output.='
-                                            <div class="photo-item imgWrap">
-                                                <img class="scale" src="'.$img.'" />
-                                            </div>
-                                        ';
-                                    }
-                                    $output .= '
-                                </div>
-                            </div>
-                            <div class="info">
-                                <p>'. mb_substr(strip_tags($archives->content), 0, 50, 'utf-8') .'...</p>
-                                <span class="number">共 '.count($imgs).' 张</span>
-                            </div>
-                            </a>
-                        </li>
-                    ';
-                } else {
-                    // 文章无图片
-                        $output .='
-                        <li class="archive-item">
-                            <a href="'.$archives->permalink .'">
-                                <div class="timer">
-                                    <span class="day">'.date('d',$archives->created).'</span><span class="month">'. $mon .'月</span>
-                                </div>
-                                <div class="text">'. mb_substr(strip_tags($archives->content), 0, 50, 'utf-8') .'...</div>
-                            </a>
-                        </li>';
+    <?php while ($this->next()): ?>
+    <div class="item">
+      <?php if ($this->fields->articleType === 'say') { ?>
+      <article class="article-cart">
+        <div class="layout-left">
+          <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
+        </div>
+        <div class="layout-right">
+          <div class="author">
+            <a href="JavaScript:;" class="name"><?php $this->author(); ?></a>
+          </div>
+          <div class="article-content">
+            <?php
+                $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';
+                $replacement = '<a href="$1" data-fancybox="gallery" /><img src="$1" alt="' . $this->title . '"></a>';
+                $content = preg_replace($pattern, $replacement, $this->content);
+
+                $explode = explode('<!--more-->', $content);
+                echo $explode[0];
+            ?>
+          </div>
+          <div class="article-tag"><?php $this->tags(' ', true); ?></div>
+          <?php if ($this->fields->articleTitle == 1) { ?>
+          <div class="mdui-ripple">
+            <div class="article-blog-basics">
+              <?php if($this->fields->banner) {?>
+              <img src="<?php $this->fields->banner(); ?>">
+              <?php } ?>
+              <a class="title" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
+            </div>
+          </div>
+          <?php } ?>
+          <div class="footer">
+            <div class="time"><?php $this->date(); ?></div>
+            <!-- TODO -->
+            <!-- <div class="option">
+                                    <a href="javascript:;" class="option-more">
+                                     <i class="mdui-icon material-icons">··</i>
+                                    </a>
+                                   <div class="article-info">
+                                       <div class="item">
+                                            <i class="iconfont">&#xe663;</i>
+                                            <span>1</span>
+                                        </div>
+                                       <div>|</div>
+                                       <div class="item">
+                                            <i class="iconfont">&#xe8b4;</i>
+                                            <span>1</span>
+                                        </div>
+                                   </div>
+                               </div> -->
+          </div>
+          <div class="article-comment">
+            <?php articleComment( $this->cid ) ?>
+          </div>
+        </div>
+      </article>
+      <?php } ?>
+
+      <?php if ($this->fields->articleType === 'sayTitleImg') { ?>
+      <!-- TODO -->
+      <article class="article-cart">
+        <div class="layout-left">
+          <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
+        </div>
+        <div class="layout-right">
+          <div class="author">
+            <a href="JavaScript:;" class="name"><?php $this->author(); ?></a>
+          </div>
+          <div class="article-content">
+            <p><?php $this->excerpt(70, '...'); ?></p>
+            <div class="article-content-pic">
+              <?php 
+                $array = get_postthumb($this);
+                $length = count($array);
+
+                if ($length === 2) {
+                    $count = 0;
+                    foreach ($array as $url) { 
+                        echo '<a href="'.$url.'" class="article-content-pic-item" data-fancybox="gallery" style="width: 48.888%" /><img class="article-content-pic-item-photo" src="' .$url. '""></a>';
+                        $count++;
+                        if ($count >= 9) {
+                            break;
+                        }
                     }
-            endwhile;   
-            $output .= '</ul></li></ul></div>';   
-            echo $output;   
-        ?>
-      </div>
+                } else {
+                    $count = 0;
+                    foreach ($array as $url) { 
+                        echo '<a href="'.$url.'" class="article-content-pic-item" data-fancybox="gallery" /><img class="article-content-pic-item-photo" src="' .$url. '""></a>';
+                        $count++;
+                        if ($count >= 9) {
+                            break;  // 当计数器大于等于9时跳出循环
+                        }
+                    }
+                }    
+            ?>
+            </div>
+          </div>
+          <div class="article-tag"><?php $this->tags(' ', true); ?></div>
+          <?php if ($this->fields->articleTitle == 1) { ?>
+          <div class="mdui-ripple">
+            <div class="article-blog-basics">
+              <?php
+                                        if($this->fields->banner) {?>
+              <img src="<?php $this->fields->banner(); ?>">
+              <?php } ?>
+              <a class="title" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
+            </div>
+          </div>
+          <?php } ?>
+          <div class="footer">
+            <div class="time"><?php $this->date(); ?></div>
+            <!-- TODO -->
+            <!-- <div class="option">
+                                    <a href="javascript:;" class="option-more">
+                                     <i class="mdui-icon material-icons">··</i>
+                                    </a>
+                                   <div class="article-info">
+                                       <div class="item">
+                                            <i class="iconfont">&#xe663;</i>
+                                            <span>1</span>
+                                        </div>
+                                       <div>|</div>
+                                       <div class="item">
+                                            <i class="iconfont">&#xe8b4;</i>
+                                            <span>1</span>
+                                        </div>
+                                   </div>
+                               </div> -->
+          </div>
+          <div class="article-comment">
+            <?php articleComment( $this->cid ) ?>
+          </div>
+        </div>
+      </article>
+      <?php } ?>
+
     </div>
-    <?php $this->need('comments.php'); ?>
+    <?php endwhile; ?>
   </div>
+  <?php $this->pageLink('查看更多','next'); ?>
+
 </main>
 
 <?php $this->need('footer.php'); ?>
