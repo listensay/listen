@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
-/dist
-
+dist
+listen-vue-dev
 
 # local env files
 .env.local
