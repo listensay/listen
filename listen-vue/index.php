@@ -31,6 +31,6 @@
 </body>
 <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 <script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js"></script>
-<script src="<?php $this->options->themeUrl('listen-vue.js?60147041b3108fb0232b'); ?>"></script>
+<script src="<?php $this->options->themeUrl('listen-vue.js?2e13e59919fbad3f6ae2'); ?>"></script>
 
 </html>
