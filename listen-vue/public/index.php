@@ -1,14 +1,14 @@
 <?php
+
 /**
- * 朋友圈主题啦！
- *
- * @package Typecho 朋友圈主题
- * @author 星期四
- * @version 2.1.0
- * @link http://blog.200205.net
+ * 这是 Typecho 0.9 系统的一套默认皮肤
+ * 
+ * @package Yuna
+ * @author moz
+ * @version 1.0
+ * @link https://www.npmrundev.com
  */
 
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>listen-blog</title>
+  <title>hello-world</title>
   <link rel="shortcut icon" href="<?php $this->options->themeUrl('<%= htmlWebpackPlugin.files.favicon %>'); ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('<%= htmlWebpackPlugin.files.css %>'); ?>">
 </head>
@@ -29,7 +29,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
   </noscript>
   <div id="app"></div>
 </body>
-
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js"></script>
 <script src="<?php $this->options->themeUrl('<%= htmlWebpackPlugin.files.chunks.main.entry %>'); ?>"></script>
 
 </html>

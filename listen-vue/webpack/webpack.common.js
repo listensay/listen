@@ -1,8 +1,8 @@
-const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
+const path = require("path");
+const { VueLoaderPlugin } = require("vue-loader");
 
 // 载入主题配置
-const THEME = require('../themeConfig')
+const THEME = require("../themeConfig");
 
 // 公共webpack配置
 module.exports = {
@@ -12,22 +12,22 @@ module.exports = {
     chunks: false,
     chunkModules: false
   },
-  entry: path.join(__dirname, '../src/main.js'),
+  entry: path.join(__dirname, "../src/main.js"),
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: "vue-loader"
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: "babel-loader"
       },
       {
         test: /\.(png|jpg|gif|jpeg)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
               esModule: false,
               limit: true
@@ -40,7 +40,7 @@ module.exports = {
   plugins: [new VueLoaderPlugin()],
   // cdn
   externals: {
-    vue: 'Vue',
-    'vue-router': 'VueRouter'
+    vue: "Vue",
+    "vue-router": "VueRouter"
   }
-}
+};
