@@ -1,8 +1,16 @@
 Html Webpack Plugin:
 <pre>
-  Error: HtmlWebpackPlugin: could not load file /Users/od23/Desktop/BLOG/usr/themes/listen-dev/listen-vue/public/favicon.ico
+  TypeError: Cannot read properties of undefined (reading 'main')
   
-  - index.js:543 
-    [listen-vue]/[html-webpack-plugin]/index.js:543:35
+  - loader.js:8 eval
+    [index.php?.]/[html-webpack-plugin]/lib/loader.js:8:42
+  
+  - loader.js:11 module.exports
+    [index.php?.]/[html-webpack-plugin]/lib/loader.js:11:3
+  
+  - index.js:499 
+    [listen-vue]/[html-webpack-plugin]/index.js:499:16
+  
+  - async Promise.all
   
 </pre>
