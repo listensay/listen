@@ -13,8 +13,12 @@ $this->need('header.php');
 ?>
 <main class="mmui-article-list">
   <div class="list">
+    <?php $categories = $this->categories; ?>
     <?php while ($this->next()): ?>
     <div class="item">
+
+    <?php articleCategoryDesc( $this->cid ) ?>
+
       <?php if ($this->fields->articleType === 'say') { ?>
       <article class="article-cart">
         <div class="layout-left">
@@ -47,23 +51,6 @@ $this->need('header.php');
           <?php } ?>
           <div class="footer">
             <div class="time"><?php $this->date(); ?></div>
-            <!-- TODO -->
-            <!-- <div class="option">
-                                    <a href="javascript:;" class="option-more">
-                                     <i class="mdui-icon material-icons">··</i>
-                                    </a>
-                                   <div class="article-info">
-                                       <div class="item">
-                                            <i class="iconfont">&#xe663;</i>
-                                            <span>1</span>
-                                        </div>
-                                       <div>|</div>
-                                       <div class="item">
-                                            <i class="iconfont">&#xe8b4;</i>
-                                            <span>1</span>
-                                        </div>
-                                   </div>
-                               </div> -->
           </div>
           <div class="article-comment">
             <?php articleComment( $this->cid ) ?>
@@ -125,23 +112,6 @@ $this->need('header.php');
           <?php } ?>
           <div class="footer">
             <div class="time"><?php $this->date(); ?></div>
-            <!-- TODO -->
-            <!-- <div class="option">
-                                    <a href="javascript:;" class="option-more">
-                                     <i class="mdui-icon material-icons">··</i>
-                                    </a>
-                                   <div class="article-info">
-                                       <div class="item">
-                                            <i class="iconfont">&#xe663;</i>
-                                            <span>1</span>
-                                        </div>
-                                       <div>|</div>
-                                       <div class="item">
-                                            <i class="iconfont">&#xe8b4;</i>
-                                            <span>1</span>
-                                        </div>
-                                   </div>
-                               </div> -->
           </div>
           <div class="article-comment">
             <?php articleComment( $this->cid ) ?>
