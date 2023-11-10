@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'listen_vue',
+  name: 'listen-vue',
   ver: 0.1,
   server: {
     url: '/'
