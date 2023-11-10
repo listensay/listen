@@ -1,5 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 const theme = require('./theme.config')
+const { VantResolver } = require('@vant/auto-import-resolver')
+const ComponentsPlugin = require('unplugin-vue-components/webpack')
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -17,5 +19,21 @@ module.exports = defineConfig({
       filename:
         process.env.NODE_ENV === 'production' ? 'index.php' : 'index.html'
     }
+  },
+  configureWebpack: {
+    plugins: [
+      ComponentsPlugin({
+        resolvers: [VantResolver()]
+      }),
+      require('unplugin-auto-import/webpack')({
+        imports: ['vue'],
+        eslintrc: {
+          enabled: true,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true
+        },
+        dts: './src/auto-import.d.ts'
+      })
+    ]
   }
 })
