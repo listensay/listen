@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <div class="layout">
-    <div class="w-[750px] mx-auto">
+  <div class="layout my-4">
+    <div class="w-[650px] mx-auto rounded-md overflow-hidden">
       <app-header></app-header>
       <router-view></router-view>
     </div>
