@@ -8,7 +8,7 @@ const { website } = storeToRefs(homeStore)
 
 <template>
   <div class="app-header">
-    <div>
+    <div class="relative">
       <div class="h-[260px] relative">
         <div class="bg">
           <img
@@ -18,15 +18,18 @@ const { website } = storeToRefs(homeStore)
           />
         </div>
 
-        <div class="absolute right-6 -bottom-6 flex z-30">
-          <div class="name m-4 text-white text-lg">{{ website.nickname }}</div>
+        <div class="absolute right-6 -bottom-5 flex z-30">
+          <div class="name m-4 text-white text-xl">{{ website.nickname }}</div>
           <img
             :src="website.logoUrl"
-            width="80"
+            width="75"
             class="rounded shadow"
             alt="avatar"
           />
         </div>
+      </div>
+      <div class="mt-10 mx-8 text-right text-sm text-gray-500">
+        {{ website.userdesc }}
       </div>
     </div>
   </div>

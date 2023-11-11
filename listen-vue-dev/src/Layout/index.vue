@@ -1,14 +1,16 @@
 <script setup>
 import { useHomeStore } from '@/store/module/home'
+
 const homeStore = useHomeStore()
 homeStore.fetchGetWebSit()
 </script>
 
 <template>
-  <div class="layout my-4">
-    <div class="w-[650px] mx-auto rounded-md overflow-hidden">
+  <div class="layout">
+    <div class="w-[650px] mx-auto bg-white min-h-[100vh]">
       <app-header></app-header>
       <router-view></router-view>
+      <app-footer></app-footer>
     </div>
   </div>
 </template>
