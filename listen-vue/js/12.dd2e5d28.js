@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunklisten_vue_dev"]=self["webpackChunklisten_vue_dev"]||[]).push([[12],{4012:function(e,n,t){t.r(n),t.d(n,{default:function(){return h}});var u=t(3396);const r={class:"home bg-white p-8 py-10"},s=(0,u._)("h2",null,"home123",-1),c=[s];function i(e,n){return(0,u.wg)(),(0,u.iD)("div",r,c)}var l=t(89);const v={},a=(0,l.Z)(v,[["render",i]]);var h=a}}]);
-//# sourceMappingURL=12.dd2e5d28.js.map

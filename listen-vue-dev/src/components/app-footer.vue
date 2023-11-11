@@ -17,7 +17,7 @@ const active = ref(0)
 <style lang="less" scoped>
 .app-footer {
   :deep(.van-tabbar--fixed) {
-    max-width: 650px;
+    max-width: 580px;
     left: 0;
     right: 0;
     margin: auto;
