@@ -14,4 +14,4 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
           'search' => _t('包含关键字 %s 的文章'),
           'tag' => _t('标签 %s 下的文章'),
           'author' => _t('%s 发布的文章')
-      ], '', ' - '); ?> <?php $this->options->title(); ?> </title><script defer="defer" src="/usr/themes/listen-vue/js/chunk-vendors.c43c3d18.js"></script><script defer="defer" src="/usr/themes/listen-vue/js/index.f17d30fa.js"></script><link href="/usr/themes/listen-vue/css/index.33d86ffa.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but listen-vue-dev doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+      ], '', ' - '); ?> <?php $this->options->title(); ?> </title><script defer="defer" src="/usr/themes/listen-vue/js/chunk-vendors.5ef1a677.js"></script><script defer="defer" src="/usr/themes/listen-vue/js/index.ff559d22.js"></script><link href="/usr/themes/listen-vue/css/index.35c05e8b.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but listen-vue-dev doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
