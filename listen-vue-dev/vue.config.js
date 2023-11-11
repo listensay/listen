@@ -6,6 +6,14 @@ const ComponentsPlugin = require('unplugin-vue-components/webpack')
 module.exports = defineConfig({
   transpileDependencies: true,
   outputDir: `../${theme.name}`,
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:1234',
+        changeOrigin: true
+      }
+    }
+  },
   publicPath:
     process.env.NODE_ENV === 'production' ? `/usr/themes/${theme.name}/` : '/',
 

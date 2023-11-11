@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { useHomeStore } from '@/store/module/home'
+import { storeToRefs } from 'pinia'
+
+const homeStore = useHomeStore()
+const { website } = storeToRefs(homeStore)
+</script>
 
 <template>
   <div class="app-header">
@@ -6,16 +12,16 @@
       <div class="h-[260px] relative">
         <div class="bg">
           <img
-            src="@/assets/images/pic.jpeg"
+            :src="website.bannerUrl"
             class="max-w-full w-full h-[260px] object-cover"
             alt="bg"
           />
         </div>
 
         <div class="absolute right-6 -bottom-6 flex z-30">
-          <div class="name m-4 text-white text-lg">星期四</div>
+          <div class="name m-4 text-white text-lg">{{ website.nickname }}</div>
           <img
-            src="@/assets/images/avatar.jpg"
+            :src="website.logoUrl"
             width="80"
             class="rounded shadow"
             alt="avatar"

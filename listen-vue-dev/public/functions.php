@@ -8,8 +8,7 @@ function themeConfig($form)
         'logoUrl',
         null,
         null,
-        '朋友圈头像地址',
-        '默认：/usr/themes/listen/static/images/tx.jpg'
+        '朋友圈头像地址'
     );
     $form->addInput($logoUrl);
 

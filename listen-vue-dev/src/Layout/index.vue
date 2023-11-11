@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useHomeStore } from '@/store/module/home'
+const homeStore = useHomeStore()
+homeStore.fetchGetWebSit()
+</script>
 
 <template>
   <div class="layout my-4">
