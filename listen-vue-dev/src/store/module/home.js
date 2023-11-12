@@ -5,7 +5,8 @@ const homeAPI = useHomeAPI()
 export const useHomeStore = defineStore('useHomeStre', {
   state: () => ({
     website: '',
-    homeArticleList: ''
+    homeArticleList: [],
+    pages: null
   }),
   actions: {
     async fetchGetWebSit() {
@@ -16,10 +17,11 @@ export const useHomeStore = defineStore('useHomeStre', {
         console.log(error)
       }
     },
-    async fetchGetArticleList() {
+    async fetchGetArticleList(page = 1) {
       try {
-        const result = await homeAPI.getArtilceList()
-        this.homeArticleList = result.data.dataSet
+        const result = await homeAPI.getArtilceList(page)
+        this.homeArticleList.push(...result.data.dataSet)
+        this.pages = result.data.pages
       } catch (error) {
         console.log(error)
       }
