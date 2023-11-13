@@ -1,7 +1,7 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store/module/home'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const homeStore = useHomeStore()
 const { homeArticleList, pages } = storeToRefs(homeStore)
@@ -26,6 +26,11 @@ const onLoad = async () => {
     finished.value = true
   }
 }
+
+// TODO
+onMounted(() => {
+  console.log(document.querySelector('.contRef'))
+})
 </script>
 
 <template>
@@ -54,7 +59,7 @@ const onLoad = async () => {
               </div>
 
               <div class="relative">
-                <TextOverflow class="content">
+                <TextOverflow class="content" ref="contRef">
                   <div v-html="item.digest" class="prose lg:prose-sm"></div>
                 </TextOverflow>
               </div>
