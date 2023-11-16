@@ -5,9 +5,13 @@ const active = ref(0)
 
 <template>
   <div class="app-footer">
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="friends-o">朋友圈</van-tabbar-item>
-      <van-tabbar-item icon="link-o">联系簿</van-tabbar-item>
+    <van-tabbar v-model="active" route>
+      <van-tabbar-item name="home" to="/home" icon="friends-o"
+        >朋友圈</van-tabbar-item
+      >
+      <van-tabbar-item name="links" to="/links" icon="link-o"
+        >联系簿</van-tabbar-item
+      >
       <van-tabbar-item icon="setting-o">归档</van-tabbar-item>
       <van-tabbar-item icon="chat-o" dot>标签</van-tabbar-item>
     </van-tabbar>
