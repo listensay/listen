@@ -51,7 +51,7 @@ onMounted(() => {
                 :alt="item.categories[0].name"
               />
             </div>
-            <div class="flex-1 border-b-[1px] border-zinc-150">
+            <div class="flex-1 pb-4 border-b-[1px] border-zinc-150">
               <div class="text-[#5b6b92] mb-1">
                 {{ item.categories[0].name }}
               </div>
@@ -66,7 +66,6 @@ onMounted(() => {
               </template>
 
               <template v-else>
-                <div>hhhhhh</div>
                 <div class="relative">
                   <div v-html="item.digest" class="prose lg:prose-sm"></div>
                 </div>

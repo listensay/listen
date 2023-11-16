@@ -34,8 +34,7 @@ function themeConfig($form)
         'bannerUrl',
         null,
         null,
-        '用户背景图url',
-        '默认：/usr/themes/listen/static/images/pic1.jpeg'
+        '用户背景图url'
     );
     $form->addInput($bannerUrl);
 }
@@ -51,4 +50,13 @@ function themeFields($layout) {
     ;
     $layout->addItem($hiddenLine);
 
+    // 朋友圈九宫格模式
+    $articleStyle = new Typecho_Widget_Helper_Form_Element_Select('articleStyle', array(
+        'basic' => '普通文章风格',
+        'imgGrid' => '朋友圈风格 (适合有图片的文章)'
+    ), 'basic',
+        '文章风格',
+        '首页文章的样式风格')
+    ;
+    $layout->addItem($articleStyle);
 }
