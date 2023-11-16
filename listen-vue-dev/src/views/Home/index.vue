@@ -25,6 +25,21 @@ const onLoad = async () => {
   }
 }
 
+// 正则图片
+const regexImg = (html) => {
+  const regex = /<img\b[^>]*\bsrc\s*=\s*['"]([^'"]*)['"][^>]*>/g
+  return html.match(regex)
+}
+
+// 正则文章
+const regexText = (html) => {
+  // Remove br and img tags
+  let str = html.replace(/<\s*img[^>]*>|<\s*br[^>]*>/g, '')
+
+  // Remove empty p tags
+  return str.replace(/<\s*p[^>]*>\s*<\s*\/p[^>]*>/g, '')
+}
+
 // TODO
 onMounted(() => {
   console.log(document.querySelector('.contRef'))
@@ -56,18 +71,43 @@ onMounted(() => {
                 {{ item.categories[0].name }}
               </div>
 
-              <!-- 文章收缩 -->
-              <template v-if="item.fields.hiddenLine.value === '1'">
+              <!-- 九宫格文章图片 -->
+              <template v-if="item.fields.articleStyle.value === 'imgGrid'">
                 <div class="relative">
-                  <TextOverflow class="content" ref="contRef">
-                    <div v-html="item.digest" class="prose lg:prose-sm"></div>
-                  </TextOverflow>
+                  <!-- 文章收缩 -->
+                  <template v-if="item.fields.hiddenLine.value === '1'">
+                    <TextOverflow class="content" ref="contRef">
+                      <div v-html="item.digest" class="prose lg:prose-sm"></div>
+                    </TextOverflow>
+                  </template>
+
+                  <template v-else>
+                    <div
+                      v-html="regexText(item.digest)"
+                      class="prose lg:prose-sm"
+                    ></div>
+                  </template>
+
+                  <div class="pic my-4 flex">
+                    <div v-for="img in regexImg(item.digest)" :key="img">
+                      <div v-html="img"></div>
+                    </div>
+                  </div>
                 </div>
               </template>
 
               <template v-else>
                 <div class="relative">
-                  <div v-html="item.digest" class="prose lg:prose-sm"></div>
+                  <!-- 文章收缩 -->
+                  <template v-if="item.fields.hiddenLine.value === '1'">
+                    <TextOverflow class="content" ref="contRef">
+                      <div v-html="item.digest" class="prose lg:prose-sm"></div>
+                    </TextOverflow>
+                  </template>
+
+                  <template v-else>
+                    <div v-html="item.digest" class="prose lg:prose-sm"></div>
+                  </template>
                 </div>
               </template>
             </div>
