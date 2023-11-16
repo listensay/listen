@@ -41,24 +41,14 @@ function themeConfig($form)
 }
 
 function themeFields($layout) {
-    // 文章style
-    $articleType= new Typecho_Widget_Helper_Form_Element_Select('articleType',array(
-        'say' => '默认样式（文章+标题）',
-        'sayTitleImg' => '九宫格样式',
-    ), '0','文章类型','文章Style');
-    $layout->addItem($articleType);
-
-    // 文章title
-    $articleTitle = new Typecho_Widget_Helper_Form_Element_Select('articleTitle', array(
-        1 => '显示',
+    // 文章收缩
+    $hiddenLine = new Typecho_Widget_Helper_Form_Element_Select('hiddenLine', array(
         0 => '隐藏',
-    ), 1,
-        '文章是否显示title',
-        '开启后在文章描述后面加一个文章标题')
+        1 => '显示',
+    ), 0,
+        '是否显示文章收缩',
+        '开启后在文章一部分内容开始收缩')
     ;
-    $layout->addItem($articleTitle);
-
-    $banner = new Typecho_Widget_Helper_Form_Element_Text('banner', NULL, NULL,_t('文章头图'), _t('输入一个图片 url，作为缩略图显示在文章列表，没有则不显示'));
-    $layout->addItem($banner);
+    $layout->addItem($hiddenLine);
 
 }

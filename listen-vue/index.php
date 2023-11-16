@@ -1,10 +1,10 @@
 <?php
 /**
- * This is your template name
+ * Typecho 个人圈子风格主题
  *
- * @package Typecho template name
+ * @package listen-vue
  * @author 星期四
- * @version 2.1.0
+ * @version 0.0.1
  * @link http://blog.200205.net
  */
 
@@ -14,4 +14,4 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
           'search' => _t('包含关键字 %s 的文章'),
           'tag' => _t('标签 %s 下的文章'),
           'author' => _t('%s 发布的文章')
-      ], '', ' - '); ?> <?php $this->options->title(); ?> </title><script defer="defer" src="/usr/themes/listen-vue/js/chunk-vendors.dd5b6aac.js"></script><script defer="defer" src="/usr/themes/listen-vue/js/index.301d3523.js"></script><link href="/usr/themes/listen-vue/css/index.9ae98201.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but listen-vue-dev doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+      ], '', ' - '); ?> <?php $this->options->title(); ?> </title><script defer="defer" src="/usr/themes/listen-vue/js/chunk-vendors.90d92e6c.js"></script><script defer="defer" src="/usr/themes/listen-vue/js/index.8cf6f445.js"></script><link href="/usr/themes/listen-vue/css/index.a373f5dd.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but listen-vue-dev doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>

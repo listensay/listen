@@ -19,8 +19,6 @@ const onLoad = async () => {
   // 加载状态结束
   loading.value = false
 
-  console.log(currentPage.value, pages.value)
-
   // 数据全部加载完成
   if (currentPage.value === pages.value) {
     finished.value = true
@@ -58,11 +56,21 @@ onMounted(() => {
                 {{ item.categories[0].name }}
               </div>
 
-              <div class="relative">
-                <TextOverflow class="content" ref="contRef">
+              <!-- 文章收缩 -->
+              <template v-if="item.fields.hiddenLine.value === '1'">
+                <div class="relative">
+                  <TextOverflow class="content" ref="contRef">
+                    <div v-html="item.digest" class="prose lg:prose-sm"></div>
+                  </TextOverflow>
+                </div>
+              </template>
+
+              <template v-else>
+                <div>hhhhhh</div>
+                <div class="relative">
                   <div v-html="item.digest" class="prose lg:prose-sm"></div>
-                </TextOverflow>
-              </div>
+                </div>
+              </template>
             </div>
           </div>
         </li>
@@ -71,8 +79,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="less" scoped>
-.content {
-  width: 100%;
-}
-</style>
+<style lang="less" scoped></style>
