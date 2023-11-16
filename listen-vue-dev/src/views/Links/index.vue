@@ -1,6 +1,23 @@
 <script setup>
+import { useArticleDetailAPI } from '@/api/detail'
+import { useMainStore } from '@/store/main'
 import { useLinksStore } from '@/store/module/links'
 import { storeToRefs } from 'pinia'
+
+const mainStore = useMainStore()
+const { link } = storeToRefs(mainStore)
+console.log(link.value[0].cid)
+
+const articleDetailAPI = useArticleDetailAPI()
+
+try {
+  articleDetailAPI.getArticleDetail(link.value[0].cid).then((res) => {
+    console.log(res)
+  })
+} catch (error) {
+  console.log(error)
+}
+
 const linksStore = useLinksStore()
 linksStore.fetchGetLinks()
 const { links } = storeToRefs(linksStore)
