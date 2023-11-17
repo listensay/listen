@@ -27,17 +27,26 @@ const onLoad = async () => {
 
 // 正则图片
 const regexImg = (html) => {
-  const regex = /<img\b[^>]*\bsrc\s*=\s*['"]([^'"]*)['"][^>]*>/g
-  return html.match(regex)
+  let urls = []
+  let matches = html.matchAll(/<img[^>]+src="([^">]+)"/g)
+
+  for (let match of matches) {
+    urls.push(match[1])
+  }
+
+  return urls
 }
 
 // 正则文章
 const regexText = (html) => {
-  // Remove br and img tags
-  let str = html.replace(/<\s*img[^>]*>|<\s*br[^>]*>/g, '')
+  // Remove img tags
+  let str = html.replace(/<img[^>]*>/g, '')
+
+  // Remove br tags
+  str = str.replace(/<br\s*\/?>/g, '')
 
   // Remove empty p tags
-  return str.replace(/<\s*p[^>]*>\s*<\s*\/p[^>]*>/g, '')
+  return str.replace(/<p>\s*<\/p>/g, '')
 }
 
 // TODO
@@ -90,13 +99,17 @@ onMounted(() => {
                   ></div>
                 </template>
               </div>
-              <div class="pic my-4 flex">
+              <!-- 图片 -->
+              <div class="pic my-4 grid grid-cols-3 gap-2">
                 <div
-                  v-for="img in regexImg(item.digest)"
-                  :key="img"
-                  class="w-1/3"
+                  v-for="imgUrl in regexImg(item.digest)"
+                  :key="imgUrl"
+                  class="relative w-full pt-[100%]"
                 >
-                  <div v-html="img"></div>
+                  <img
+                    :src="imgUrl"
+                    class="top-0 absolute h-full object-cover"
+                  />
                 </div>
               </div>
             </template>
@@ -129,8 +142,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .pic {
   img {
-    max-width: 100%;
-    width: 100%;
+    @apply absolute top-0;
   }
 }
 </style>
