@@ -12,10 +12,8 @@
     text-wrap: wrap;
   }
 
-  .prose{
-    &:first-of-type p{
-      margin-top: 0;
-    }
+  .prose :first-of-type p{
+    margin-top: 0;
   }
 
 }
