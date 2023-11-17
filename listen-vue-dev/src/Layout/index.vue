@@ -7,7 +7,7 @@ homeStore.fetchGetWebSit()
 
 <template>
   <div class="layout">
-    <div class="w-[580px] mx-auto bg-white min-h-[100vh]">
+    <div class="md:w-[580px] mx-auto bg-white min-h-[100vh] sm:w-full">
       <app-header></app-header>
       <router-view></router-view>
       <app-footer></app-footer>

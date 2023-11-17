@@ -48,74 +48,89 @@ onMounted(() => {
 
 <template>
   <div class="home bg-white p-8 py-6 pb-16">
-    <ul>
-      <van-list
-        v-model:loading="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        offset="0"
-        @load="onLoad"
-      >
-        <li v-for="item in homeArticleList" :key="item.cid" class="mb-8">
-          <!-- {{ item.title }} -->
-          <div class="flex">
-            <div class="w-12 mr-4">
-              <img
-                class="w-12 rounded"
-                :src="item.categories[0].description"
-                :alt="item.categories[0].name"
-              />
+    <van-list
+      v-model:loading="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      offset="0"
+      @load="onLoad"
+    >
+      <div v-for="item in homeArticleList" :key="item.cid" class="mb-8">
+        <!-- {{ item.title }} -->
+        <div class="flex">
+          <div class="w-12 mr-4 flex-shrink-0">
+            <img
+              class="w-12 rounded"
+              :src="item.categories[0].description"
+              :alt="item.categories[0].name"
+            />
+          </div>
+          <div class="flex-1 pb-4 border-b-[1px] border-zinc-150 truncate">
+            <div class="text-[#5b6b92] mb-1">
+              {{ item.categories[0].name }}
             </div>
-            <div class="flex-1 pb-4 border-b-[1px] border-zinc-150">
-              <div class="text-[#5b6b92] mb-1">
-                {{ item.categories[0].name }}
-              </div>
 
-              <!-- 九宫格文章图片 -->
-              <template v-if="item.fields.articleStyle.value === 'imgGrid'">
-                <div class="relative">
-                  <!-- 文章收缩 -->
-                  <template v-if="item.fields.hiddenLine.value === '1'">
-                    <TextOverflow class="content" ref="contRef">
-                      <div v-html="item.digest" class="prose lg:prose-sm"></div>
-                    </TextOverflow>
-                  </template>
-
-                  <template v-else>
+            <!-- 九宫格文章图片 -->
+            <template v-if="item.fields.articleStyle.value === 'imgGrid'">
+              <div class="relative">
+                <!-- 文章收缩 -->
+                <template v-if="item.fields.hiddenLine.value === '1'">
+                  <TextOverflow class="content" ref="contRef">
                     <div
                       v-html="regexText(item.digest)"
                       class="prose lg:prose-sm"
                     ></div>
-                  </template>
+                  </TextOverflow>
+                </template>
 
-                  <div class="pic my-4 flex">
-                    <div v-for="img in regexImg(item.digest)" :key="img">
-                      <div v-html="img"></div>
+                <template v-else>
+                  <div
+                    v-html="regexText(item.digest)"
+                    class="prose lg:prose-sm"
+                  ></div>
+                </template>
+              </div>
+              <div class="pic my-4 flex">
+                <div
+                  v-for="img in regexImg(item.digest)"
+                  :key="img"
+                  class="w-1/3"
+                >
+                  <div v-html="img"></div>
+                </div>
+              </div>
+            </template>
+
+            <template v-else>
+              <div class="relative">
+                <!-- 文章收缩 -->
+                <template v-if="item.fields.hiddenLine.value === '1'">
+                  <TextOverflow class="content" ref="contRef">
+                    <div class="prose lg:prose-sm">
+                      <div v-html="item.digest"></div>
                     </div>
+                  </TextOverflow>
+                </template>
+
+                <template v-else>
+                  <div class="prose xs:prose-xs">
+                    <div v-html="item.digest" class="first:p:mt-0"></div>
                   </div>
-                </div>
-              </template>
-
-              <template v-else>
-                <div class="relative">
-                  <!-- 文章收缩 -->
-                  <template v-if="item.fields.hiddenLine.value === '1'">
-                    <TextOverflow class="content" ref="contRef">
-                      <div v-html="item.digest" class="prose lg:prose-sm"></div>
-                    </TextOverflow>
-                  </template>
-
-                  <template v-else>
-                    <div v-html="item.digest" class="prose lg:prose-sm"></div>
-                  </template>
-                </div>
-              </template>
-            </div>
+                </template>
+              </div>
+            </template>
           </div>
-        </li>
-      </van-list>
-    </ul>
+        </div>
+      </div>
+    </van-list>
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.pic {
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+</style>

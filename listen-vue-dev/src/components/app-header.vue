@@ -9,11 +9,11 @@ const { website } = storeToRefs(homeStore)
 <template>
   <div class="app-header">
     <div class="relative">
-      <div class="h-[260px] relative">
+      <div class="h-56 relative">
         <div class="bg">
           <img
             :src="website.bannerUrl"
-            class="max-w-full w-full h-[260px] object-cover"
+            class="max-w-full w-full h-56 object-cover"
             alt="bg"
           />
         </div>
