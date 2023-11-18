@@ -1,7 +1,7 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store/module/home'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const homeStore = useHomeStore()
 const { homeArticleList, pages } = storeToRefs(homeStore)
@@ -95,7 +95,7 @@ const regexText = (html) => {
                 </template>
               </div>
               <!-- 图片 -->
-              <div class="pic my-4 grid grid-cols-3 gap-2">
+              <div class="my-4 grid grid-cols-3 gap-2">
                 <div
                   v-for="imgUrl in regexImg(item.digest)"
                   :key="imgUrl"
@@ -113,7 +113,7 @@ const regexText = (html) => {
               <div class="relative">
                 <!-- 文章收缩 -->
                 <template v-if="item.fields.hiddenLine.value === '1'">
-                  <TextOverflow class="content" ref="contRef">
+                  <TextOverflow class="content">
                     <div class="prose lg:prose-sm">
                       <div v-html="item.digest"></div>
                     </div>
@@ -134,10 +134,4 @@ const regexText = (html) => {
   </div>
 </template>
 
-<style lang="less" scoped>
-.pic {
-  img {
-    @apply absolute top-0;
-  }
-}
-</style>
+<style lang="less" scoped></style>
