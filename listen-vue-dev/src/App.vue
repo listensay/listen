@@ -1,9 +1,4 @@
-<script setup>
-import { useMainStore } from './store/main'
-
-const mainStore = useMainStore()
-mainStore.fetchGetPages()
-</script>
+<script setup></script>
 
 <template>
   <div>

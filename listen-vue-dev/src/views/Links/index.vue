@@ -3,28 +3,32 @@ import { useArticleDetailAPI } from '@/api/detail'
 import { useMainStore } from '@/store/main'
 import { useLinksStore } from '@/store/module/links'
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const mainStore = useMainStore()
 const { link } = storeToRefs(mainStore)
 
 const articleDetailAPI = useArticleDetailAPI()
-
 const article = ref('')
 
-;(async function () {
-  try {
-    await articleDetailAPI.getArticleDetail(link.value[0].cid).then((res) => {
-      article.value = res.data
-    })
-  } catch (error) {
-    console.log(error)
-  }
-})()
-
 const linksStore = useLinksStore()
-linksStore.fetchGetLinks()
+
 const { links } = storeToRefs(linksStore)
+
+onMounted(() => {
+  ;(async function () {
+    await linksStore.fetchGetLinks()
+  })()
+  ;(async function () {
+    try {
+      await articleDetailAPI.getArticleDetail(link.value[0].cid).then((res) => {
+        article.value = res.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  })()
+})
 </script>
 
 <template>

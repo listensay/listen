@@ -12,12 +12,11 @@ const active = ref(0)
       <van-tabbar-item name="links" to="/links" icon="link-o"
         >联系簿</van-tabbar-item
       >
-      <van-tabbar-item icon="setting-o">归档</van-tabbar-item>
-      <van-tabbar-item icon="chat-o" dot>标签</van-tabbar-item>
+      <!-- <van-tabbar-item icon="setting-o">归档</van-tabbar-item> -->
+      <van-tabbar-item to="/about" icon="user-circle-o">关于</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
-
 <style lang="less" scoped>
 .app-footer {
   :deep(.van-tabbar--fixed) {

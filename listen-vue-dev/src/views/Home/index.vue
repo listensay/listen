@@ -48,11 +48,6 @@ const regexText = (html) => {
   // Remove empty p tags
   return str.replace(/<p>\s*<\/p>/g, '')
 }
-
-// TODO
-onMounted(() => {
-  console.log(document.querySelector('.contRef'))
-})
 </script>
 
 <template>
@@ -84,7 +79,7 @@ onMounted(() => {
               <div class="relative">
                 <!-- 文章收缩 -->
                 <template v-if="item.fields.hiddenLine.value === '1'">
-                  <TextOverflow class="content" ref="contRef">
+                  <TextOverflow class="content">
                     <div
                       v-html="regexText(item.digest)"
                       class="prose lg:prose-sm"
