@@ -5,7 +5,7 @@ const active = ref(0)
 
 <template>
   <div class="app-footer">
-    <van-tabbar v-model="active" route>
+    <van-tabbar v-model="active" class="max-[580px]:" route>
       <van-tabbar-item name="home" to="/home" icon="friends-o"
         >朋友圈</van-tabbar-item
       >

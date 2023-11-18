@@ -48,6 +48,11 @@ const regexText = (html) => {
   // Remove empty p tags
   return str.replace(/<p>\s*<\/p>/g, '')
 }
+
+const basicText = (html) => {
+  let regex = /(<img src="([^"]+)"[^>]*>)/g
+  return html.replace(regex, '<a data-fancybox="gallery" href="$2">$1</a>')
+}
 </script>
 
 <template>
@@ -125,14 +130,33 @@ const regexText = (html) => {
                 <template v-if="item.fields.hiddenLine.value === '1'">
                   <TextOverflow class="content">
                     <div class="prose lg:prose-sm">
-                      <div v-html="item.digest"></div>
+                      <Fancybox
+                        :options="{
+                          Carousel: {
+                            infinite: false
+                          }
+                        }"
+                      >
+                        <div v-html="basicText(item.digest)"></div>
+                      </Fancybox>
                     </div>
                   </TextOverflow>
                 </template>
 
                 <template v-else>
                   <div class="prose xs:prose-xs">
-                    <div v-html="item.digest" class="first:p:mt-0"></div>
+                    <Fancybox
+                      :options="{
+                        Carousel: {
+                          infinite: false
+                        }
+                      }"
+                    >
+                      <div
+                        v-html="basicText(item.digest)"
+                        class="first:p:mt-0"
+                      ></div>
+                    </Fancybox>
                   </div>
                 </template>
               </div>

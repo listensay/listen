@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="md:w-[580px] mx-auto bg-white min-h-[100vh] sm:w-full">
+    <div class="mx-auto bg-white min-h-[100vh] sm:w-[580px]">
       <app-header></app-header>
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
