@@ -9,9 +9,9 @@ Typecho 仿朋友圈主题
 - listen-vue Vue版本
   - 必装插件
 
-  [https://github.com/listensay/Typecho-Listen-Restful](Result)
+  [Result](https://github.com/listensay/Typecho-Listen-Restful)
 
-  [https://github.com/listensay/Typecho-Listen-Restful](links)
+  [Links](https://github.com/listensay/Typecho-Listen-Restful)
   
   - 功能  
 - listen-vue-dev listen-vue主题源代码
