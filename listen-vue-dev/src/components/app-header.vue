@@ -20,12 +20,14 @@ const { website } = storeToRefs(homeStore)
 
         <div class="absolute right-6 -bottom-5 flex z-30">
           <div class="name m-4 text-white text-xl">{{ website.nickname }}</div>
-          <img
-            :src="website.logoUrl"
-            width="75"
-            class="rounded shadow"
-            alt="avatar"
-          />
+          <router-link to="/about">
+            <img
+              :src="website.logoUrl"
+              width="75"
+              class="rounded shadow"
+              alt="avatar"
+            />
+          </router-link>
         </div>
       </div>
       <div class="mt-10 mx-8 text-right text-sm text-gray-500">

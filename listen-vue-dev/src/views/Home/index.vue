@@ -85,18 +85,12 @@ const basicText = (html) => {
                 <!-- 文章收缩 -->
                 <template v-if="item.fields.hiddenLine.value === '1'">
                   <TextOverflow class="content">
-                    <div
-                      v-html="regexText(item.digest)"
-                      class="prose lg:prose-sm"
-                    ></div>
+                    <div v-html="regexText(item.digest)" class="prose-sm"></div>
                   </TextOverflow>
                 </template>
 
                 <template v-else>
-                  <div
-                    v-html="regexText(item.digest)"
-                    class="prose lg:prose-sm"
-                  ></div>
+                  <div v-html="regexText(item.digest)" class="prose-sm"></div>
                 </template>
               </div>
               <!-- 图片 -->
@@ -129,7 +123,7 @@ const basicText = (html) => {
                 <!-- 文章收缩 -->
                 <template v-if="item.fields.hiddenLine.value === '1'">
                   <TextOverflow class="content">
-                    <div class="prose lg:prose-sm">
+                    <div class="prose-sm">
                       <Fancybox
                         :options="{
                           Carousel: {
@@ -144,7 +138,7 @@ const basicText = (html) => {
                 </template>
 
                 <template v-else>
-                  <div class="prose xs:prose-xs">
+                  <div class="prose prose-sm">
                     <Fancybox
                       :options="{
                         Carousel: {
