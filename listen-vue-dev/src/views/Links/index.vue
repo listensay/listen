@@ -38,26 +38,29 @@ onMounted(() => {
       class="relative flex h-full w-full flex-col bg-clip-border shadow-3xl shadow-shadow-500"
     >
       <div class="mb-8 w-full">
-        <h1 class="text-xl font-bold text-navy-700">{{ article.title }}</h1>
-        <p class="mt-2 text-base text-gray-600 prose" v-html="article.text"></p>
+        <h1 class="text-xl font-bold text-navy-700">{{ article?.title }}</h1>
+        <p
+          class="mt-2 text-base text-gray-600 prose"
+          v-html="article?.text"
+        ></p>
       </div>
       <a
-        :href="link.url"
+        :href="link?.url"
         class="flex w-full items-center justify-between p-3 shadow-3xl shadow-shadow-500"
         v-for="link in links"
-        :key="link.lid"
+        :key="link?.lid"
       >
         <div class="flex items-center">
-          <div class="">
+          <div class="flex-shrink-0">
             <img
               class="h-[83px] w-[83px] rounded-lg"
-              :src="link.image"
-              :alt="link.name"
+              :src="link?.image"
+              :alt="link?.name"
             />
           </div>
           <div class="ml-4">
-            <p class="text-base font-medium text-navy-700">{{ link.name }}</p>
-            <p class="mt-2 text-sm text-gray-600">{{ link.description }}</p>
+            <p class="text-base font-medium text-navy-700">{{ link?.name }}</p>
+            <p class="mt-2 text-sm text-gray-600">{{ link?.description }}</p>
           </div>
         </div>
       </a>

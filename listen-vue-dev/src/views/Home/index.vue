@@ -64,33 +64,36 @@ const basicText = (html) => {
       offset="0"
       @load="onLoad"
     >
-      <div v-for="item in homeArticleList" :key="item.cid" class="mb-8">
+      <div v-for="item in homeArticleList" :key="item?.cid" class="mb-8">
         <!-- {{ item.title }} -->
         <div class="flex">
           <div class="w-12 mr-4 flex-shrink-0">
             <img
               class="w-12 rounded"
-              :src="item.categories[0].description"
-              :alt="item.categories[0].name"
+              :src="item?.categories[0].description"
+              :alt="item?.categories[0].name"
             />
           </div>
           <div class="flex-1 pb-4 border-b-[1px] border-zinc-150 truncate">
             <div class="text-[#5b6b92] mb-1">
-              {{ item.categories[0].name }}
+              {{ item?.categories[0].name }}
             </div>
 
             <!-- 九宫格文章图片 -->
-            <template v-if="item.fields.articleStyle.value === 'imgGrid'">
+            <template v-if="item.fields.articleStyle?.value === 'imgGrid'">
               <div class="relative">
                 <!-- 文章收缩 -->
-                <template v-if="item.fields.hiddenLine.value === '1'">
+                <template v-if="item.fields.hiddenLine?.value === '1'">
                   <TextOverflow class="content">
-                    <div v-html="regexText(item.digest)" class="prose-sm"></div>
+                    <div
+                      v-html="regexText(item?.digest)"
+                      class="prose-sm"
+                    ></div>
                   </TextOverflow>
                 </template>
 
                 <template v-else>
-                  <div v-html="regexText(item.digest)" class="prose-sm"></div>
+                  <div v-html="regexText(item?.digest)" class="prose-sm"></div>
                 </template>
               </div>
               <!-- 图片 -->
@@ -103,7 +106,7 @@ const basicText = (html) => {
               >
                 <div class="pic my-4 grid grid-cols-3 gap-2">
                   <div
-                    v-for="imgUrl in regexImg(item.digest)"
+                    v-for="imgUrl in regexImg(item?.digest)"
                     :key="imgUrl"
                     class="relative w-full pt-[100%]"
                   >
@@ -121,7 +124,7 @@ const basicText = (html) => {
             <template v-else>
               <div class="relative">
                 <!-- 文章收缩 -->
-                <template v-if="item.fields.hiddenLine.value === '1'">
+                <template v-if="item?.fields?.hiddenLine?.value === '1'">
                   <TextOverflow class="content">
                     <div class="prose-sm">
                       <Fancybox
@@ -131,7 +134,7 @@ const basicText = (html) => {
                           }
                         }"
                       >
-                        <div v-html="basicText(item.digest)"></div>
+                        <div v-html="basicText(item?.digest)"></div>
                       </Fancybox>
                     </div>
                   </TextOverflow>
@@ -147,7 +150,7 @@ const basicText = (html) => {
                       }"
                     >
                       <div
-                        v-html="basicText(item.digest)"
+                        v-html="basicText(item?.digest)"
                         class="first:p:mt-0"
                       ></div>
                     </Fancybox>
