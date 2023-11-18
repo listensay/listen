@@ -95,7 +95,7 @@ const regexText = (html) => {
                 </template>
               </div>
               <!-- 图片 -->
-              <div class="my-4 grid grid-cols-3 gap-2">
+              <div class="pic my-4 grid grid-cols-3 gap-2">
                 <div
                   v-for="imgUrl in regexImg(item.digest)"
                   :key="imgUrl"
