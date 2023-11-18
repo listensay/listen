@@ -25,6 +25,14 @@ export const useHomeStore = defineStore('useHomeStre', {
       } catch (error) {
         console.log(error)
       }
+    },
+    async fetchGetCommentsList(cid) {
+      try {
+        const result = await homeAPI.getArticleComments(cid)
+        return result.data.dataSet
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 })

@@ -27,7 +27,7 @@ const handleShowMoreClick = () => {
   </div>
 </template>
 
-<style>
+<style scoped>
 .overflow-hidden {
   overflow: hidden;
   line-height: 40px;

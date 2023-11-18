@@ -1,11 +1,13 @@
 <script setup>
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store/module/home'
-import { ref } from 'vue'
+import { regexImg, basicText, regexText } from '@/utils/article'
 
 const homeStore = useHomeStore()
 const { homeArticleList, pages } = storeToRefs(homeStore)
 
+// 文章列表
 const currentPage = ref(0)
 const loading = ref(false)
 const finished = ref(false)
@@ -23,35 +25,6 @@ const onLoad = async () => {
   if (currentPage.value === pages.value) {
     finished.value = true
   }
-}
-
-// 正则图片
-const regexImg = (html) => {
-  let urls = []
-  let matches = html.matchAll(/<img[^>]+src="([^">]+)"/g)
-
-  for (let match of matches) {
-    urls.push(match[1])
-  }
-
-  return urls
-}
-
-// 正则文章
-const regexText = (html) => {
-  // Remove img tags
-  let str = html.replace(/<img[^>]*>/g, '')
-
-  // Remove br tags
-  str = str.replace(/<br\s*\/?>/g, '')
-
-  // Remove empty p tags
-  return str.replace(/<p>\s*<\/p>/g, '')
-}
-
-const basicText = (html) => {
-  let regex = /(<img src="([^"]+)"[^>]*>)/g
-  return html.replace(regex, '<a data-fancybox="gallery" href="$2">$1</a>')
 }
 </script>
 
@@ -158,6 +131,8 @@ const basicText = (html) => {
                 </template>
               </div>
             </template>
+            <!-- 文章评论列表 -->
+            <ArticleComments :cid="item?.cid"></ArticleComments>
           </div>
         </div>
       </div>
