@@ -95,18 +95,28 @@ const regexText = (html) => {
                 </template>
               </div>
               <!-- 图片 -->
-              <div class="pic my-4 grid grid-cols-3 gap-2">
-                <div
-                  v-for="imgUrl in regexImg(item.digest)"
-                  :key="imgUrl"
-                  class="relative w-full pt-[100%]"
-                >
-                  <img
-                    :src="imgUrl"
-                    class="top-0 absolute h-full object-cover"
-                  />
+              <Fancybox
+                :options="{
+                  Carousel: {
+                    infinite: false
+                  }
+                }"
+              >
+                <div class="pic my-4 grid grid-cols-3 gap-2">
+                  <div
+                    v-for="imgUrl in regexImg(item.digest)"
+                    :key="imgUrl"
+                    class="relative w-full pt-[100%]"
+                  >
+                    <a data-fancybox="gallery" :href="imgUrl">
+                      <img
+                        :src="imgUrl"
+                        class="top-0 absolute h-full object-cover"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Fancybox>
             </template>
 
             <template v-else>

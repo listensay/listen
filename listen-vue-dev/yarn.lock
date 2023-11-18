@@ -1047,6 +1047,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fancyapps/ui@^5.0.28":
+  version "5.0.28"
+  resolved "https://registry.npmmirror.com/@fancyapps/ui/-/ui-5.0.28.tgz#f0ef09a05e0e0be8815e839949a535850bd0a91b"
+  integrity sha512-CJ0Uw/KkSHH/bE+Uz4BaWgxQgzY1Dwl6dlYZtW1SGBrQBrIRuV4G3VEG1uVw27JAB9xgCbUAJddk3JQ/kvPACA==
+
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
   resolved "https://registry.npmmirror.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
@@ -6590,11 +6595,6 @@ vue-demi@>=0.14.5:
   version "0.14.6"
   resolved "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.14.6.tgz#dc706582851dc1cdc17a0054f4fec2eb6df74c92"
   integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
-
-vue-easy-lightbox@^1.16.0:
-  version "1.16.0"
-  resolved "https://registry.npmmirror.com/vue-easy-lightbox/-/vue-easy-lightbox-1.16.0.tgz#151db0a332eb32ac30616afb4e7dc09f3c82281b"
-  integrity sha512-9ckBIi56kTNkfbxioTBLKR3xnFjmkIs4SOvePn6XUciR+Dzuav0tgNjqDHkfsoo3nxIpUmfpQAT0YDl9TpJ5jA==
 
 vue-eslint-parser@^8.0.1:
   version "8.3.0"
