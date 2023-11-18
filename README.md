@@ -9,7 +9,8 @@ Typecho 仿朋友圈主题
 普通版本 友好的SEO （下载后重复名文件夹为：listen）
 
 ## listen-vue 
-Vue版本
+Vue版本，功能强大，强烈推荐！
+
 - 必装插件
   - [Result](https://github.com/listensay/Typecho-Listen-Restful)
   - Links
