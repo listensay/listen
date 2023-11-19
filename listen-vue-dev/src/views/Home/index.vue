@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store/module/home'
-import { regexImg, basicText, regexText } from '@/utils/article'
+import { regexImg, basicText, regexText } from '@/utils/articleHandle'
 
 const homeStore = useHomeStore()
 const { homeArticleList, pages } = storeToRefs(homeStore)
@@ -131,8 +131,7 @@ const onLoad = async () => {
                 </template>
               </div>
             </template>
-            <!-- 文章评论列表 -->
-            <ArticleComments :cid="item?.cid"></ArticleComments>
+            <ArticleFooter :cid="item?.cid" :date="item?.date"></ArticleFooter>
           </div>
         </div>
       </div>
