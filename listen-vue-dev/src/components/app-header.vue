@@ -11,27 +11,48 @@ const { website } = storeToRefs(homeStore)
     <div class="relative">
       <div class="h-56 relative">
         <div class="bg">
-          <img
-            :src="website.bannerUrl"
-            class="max-w-full w-full h-56 object-cover"
-            alt="bg"
-          />
+          <template v-if="website.bannerUrl">
+            <img
+              :src="website.bannerUrl"
+              class="max-w-full w-full h-56 object-cover"
+              alt="bg"
+            />
+          </template>
+          <template v-else>
+            <img
+              src="@/assets/images/pic.jpeg"
+              class="max-w-full w-full h-56 object-cover"
+              alt="bg"
+            />
+          </template>
         </div>
 
         <div class="absolute right-6 -bottom-5 flex z-30">
-          <div class="name m-4 text-white text-xl">{{ website.nickname }}</div>
+          <div class="name m-4 text-white text-xl">
+            {{ website.nickname ? website.nickname : '未设置昵称' }}
+          </div>
           <router-link to="/about">
-            <img
-              :src="website.logoUrl"
-              width="75"
-              class="rounded shadow"
-              alt="avatar"
-            />
+            <template v-if="website.logoUrl">
+              <img
+                :src="website.logoUrl"
+                width="75"
+                class="rounded shadow"
+                alt="avatar"
+              />
+            </template>
+            <template v-else>
+              <img
+                src="@/assets/images/avatar.jpg"
+                width="75"
+                class="rounded shadow"
+                alt="avatar"
+              />
+            </template>
           </router-link>
         </div>
       </div>
       <div class="mt-10 mx-8 text-right text-sm text-gray-500">
-        {{ website.userdesc }}
+        {{ website.userdesc ? website.userdesc : '这个人很懒，什么都没有留下' }}
       </div>
     </div>
   </div>
