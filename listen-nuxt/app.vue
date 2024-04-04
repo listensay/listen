@@ -1,5 +1,7 @@
 <template>
-  <div>
-    <p>欢迎使用Listen Nuxt ^_^</p>
-  </div>
+    <div>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
 </template>
