@@ -16,6 +16,7 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.4.1",
     "@types/node": "^20.12.2",
     "prisma": "^5.11.0",
     "ts-node": "^10.9.2",
