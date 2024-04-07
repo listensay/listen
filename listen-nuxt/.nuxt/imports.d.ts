@@ -28,4 +28,5 @@ export { withCtx, withDirectives, withKeys, withMemo, withModifiers, withScopeId
 export { message, notification, Modal, App } from 'ant-design-vue/es';
 export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerSeoMeta, useServerHeadSafe } from '@unhead/vue';
 export { useRequest } from '../utils/request';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
