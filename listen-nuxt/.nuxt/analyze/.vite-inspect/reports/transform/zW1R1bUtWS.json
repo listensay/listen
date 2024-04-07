@@ -1,0 +1,240 @@
+{
+  "resolvedId": "/Users/mmk/listen/listen-nuxt/utils/request.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * useAsyncData的封装\n * @param url 请求网络的url地址\n * @returns  \n */\n\nexport async function useRequest(url: string){\n    const { data, pending, error, refresh } = await useAsyncData(\n        () => $fetch(url)\n    )\n\n    return data.value\n}",
+      "start": 1712416379465,
+      "end": 1712416379481,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712416379481,
+      "end": 1712416379481,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712416379481,
+      "end": 1712416379481,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712416379481,
+      "end": 1712416379481,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712416379481,
+      "end": 1712416379481,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export async function useRequest(url) {\n  const { data, pending, error, refresh } = await useAsyncData(\n    () => $fetch(url)\n  );\n  return data.value;\n}\n",
+      "start": 1712416379481,
+      "end": 1712416379586,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/mmk/listen/listen-nuxt/utils/request.ts"
+        ],
+        "sourcesContent": [
+          "/**\n * useAsyncData的封装\n * @param url 请求网络的url地址\n * @returns  \n */\n\nexport async function useRequest(url: string){\n    const { data, pending, error, refresh } = await useAsyncData(\n        () => $fetch(url)\n    )\n\n    return data.value\n}"
+        ],
+        "mappings": "AAMA,sBAAsB,WAAW,KAAY;AACzC,QAAM,EAAE,MAAM,SAAS,OAAO,QAAQ,IAAI,MAAM;AAAA,IAC5C,MAAM,OAAO,GAAG;AAAA,EACpB;AAEA,SAAO,KAAK;AAChB;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712416379586,
+      "end": 1712416379586,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "result": "export async function useRequest(url) {\n  const { data, pending, error, refresh } = await useAsyncData(\n    () => $fetch(url)\n  , '$nIfBrkE4uq');\n  return data.value;\n}\n",
+      "start": 1712416379586,
+      "end": 1712416379587,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,gBAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC;"
+      }
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useAsyncData } from '#app/composables/asyncData';\nexport async function useRequest(url) {\n  const { data, pending, error, refresh } = await useAsyncData(\n    () => $fetch(url)\n  , '$nIfBrkE4uq');\n  return data.value;\n}\n",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712416379587,
+      "end": 1712416379587,
+      "order": "normal"
+    }
+  ]
+}
