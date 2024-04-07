@@ -1,3 +1,5 @@
+import { PrismaClient } from '@prisma/client'
+
 /**
  * 成功响应处理函数
  * @param data 返回数据
@@ -28,4 +30,9 @@ export function errorHandle(data: any, message: string = 'success', code: number
         message,
         success: false
     }
+}
+
+export function usePrisma() {
+    const prisma = new PrismaClient()
+    return prisma
 }

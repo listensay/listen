@@ -18,6 +18,7 @@
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
     "@types/node": "^20.12.2",
+    "nitro-public-module": "^0.0.11",
     "prisma": "^5.11.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
