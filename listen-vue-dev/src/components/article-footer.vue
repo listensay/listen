@@ -24,6 +24,8 @@ likes.indexOf(Number(props.cid)) != -1
   ? (actions[0].text = '取消点赞')
   : (actions[0].text = '点赞')
 
+const selfLike = ref(props.article.likes)
+
 const onSelect = async (action) => {
   if (action.text === '评论' || action.text === '取消评论') {
     commentState.value = !commentState.value
@@ -42,6 +44,7 @@ const onSelect = async (action) => {
         likes.push(Number(props.cid))
         Cookies.set('likes', JSON.stringify(likes))
         action.text = '取消点赞'
+        selfLike.value++
       })
     } else {
       service({
@@ -57,6 +60,7 @@ const onSelect = async (action) => {
         likes.splice(likes.indexOf(Number(props.cid)), 1)
         Cookies.set('likes', JSON.stringify(likes))
         action.text = '点赞'
+        selfLike.value--
       })
     }
   }
@@ -93,7 +97,7 @@ const onSelect = async (action) => {
     <template v-if="article.likes > 0">
       <div class="bg-zinc-100 my-4 mb-2 px-3 p-2 text-sm rounded">
         <div class="flex-shrink-0 text-blue-900">
-          <van-icon name="like-o" /> {{ article.likes }} 访客
+          <van-icon name="like-o" /> {{ selfLike }} 访客
         </div>
       </div>
     </template>
