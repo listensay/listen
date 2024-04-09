@@ -9,11 +9,10 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:1234', // 要跨域的域名
-        changeOrigin: true, // 是否开启跨域
+        target: 'http://127.0.0.1:1234',
+        changeOrigin: true,
         pathRewrite: {
-          //重写路径
-          '^/api': '/api' // 这种接口配置出来     http://XX.XX.XX.XX:8083/api/login
+          '^/api': '/api'
         }
       }
     }

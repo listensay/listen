@@ -131,7 +131,11 @@ const onLoad = async () => {
                 </template>
               </div>
             </template>
-            <ArticleFooter :cid="item?.cid" :date="item?.date"></ArticleFooter>
+            <ArticleFooter
+              :cid="item?.cid"
+              :date="item?.date"
+              :article="item"
+            />
           </div>
         </div>
       </div>
