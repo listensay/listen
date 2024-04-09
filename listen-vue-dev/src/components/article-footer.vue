@@ -4,6 +4,7 @@ import { formatTimestamp } from '@/utils/articleHandle'
 import service from '@/utils/request'
 import { showToast } from 'vant'
 import 'vant/es/toast/style'
+import Cookies from 'js-cookie'
 
 const props = defineProps({
   cid: { type: String, default: -1 },
@@ -18,22 +19,46 @@ const actions = [
   { text: '点赞', icon: 'like-o' },
   { text: '评论', icon: 'chat-o' }
 ]
+const likes = JSON.parse(Cookies.get('likes') || '[]')
+likes.indexOf(Number(props.cid)) != -1
+  ? (actions[0].text = '取消点赞')
+  : (actions[0].text = '点赞')
 
 const onSelect = async (action) => {
   if (action.text === '评论' || action.text === '取消评论') {
     commentState.value = !commentState.value
     commentState.value ? (action.text = '取消评论') : (action.text = '评论')
-  } else if (action.text === '点赞') {
-    service({
-      url: '/like',
-      method: 'post',
-      data: { cid: props.cid, likeState: true }
-    }).then(() => {
-      showToast({
-        message: '(。ゝω・)ﾉ☆',
-        icon: 'like-o'
+  } else if (action.text === '点赞' || action.text === '取消点赞') {
+    if (likes.indexOf(Number(props.cid)) == -1) {
+      service({
+        url: '/like',
+        method: 'post',
+        data: { cid: props.cid, likeState: true }
+      }).then(() => {
+        showToast({
+          message: '(。ゝω・)ﾉ☆',
+          icon: 'like-o'
+        })
+        likes.push(Number(props.cid))
+        Cookies.set('likes', JSON.stringify(likes))
+        action.text = '取消点赞'
       })
-    })
+    } else {
+      service({
+        url: '/like',
+        method: 'post',
+        data: { cid: props.cid, likeState: false }
+      }).then(() => {
+        showToast({
+          message: '(╥_╥)',
+          icon: 'like-o'
+        })
+
+        likes.splice(likes.indexOf(Number(props.cid)), 1)
+        Cookies.set('likes', JSON.stringify(likes))
+        action.text = '点赞'
+      })
+    }
   }
 }
 </script>
