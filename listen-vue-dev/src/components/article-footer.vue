@@ -94,7 +94,7 @@ const onSelect = async (action) => {
       </div>
     </div>
     <!-- 文章点赞数量 -->
-    <template v-if="article.likes > 0">
+    <template v-if="selfLike > 0">
       <div class="bg-zinc-100 my-4 mb-2 px-3 p-2 text-sm rounded">
         <div class="flex-shrink-0 text-blue-900">
           <van-icon name="like-o" /> {{ selfLike }} 访客
