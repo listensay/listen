@@ -42,7 +42,7 @@ const onLoad = async () => {
         <div class="flex">
           <div class="w-12 mr-4 flex-shrink-0">
             <img
-              class="w-12 rounded"
+              class="w-12 h-12 rounded"
               :src="item?.categories[0].description"
               :alt="item?.categories[0].name"
             />
