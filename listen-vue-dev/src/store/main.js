@@ -6,7 +6,8 @@ export const useMainStore = defineStore('useMainStore', {
     pages: [],
     about: '',
     link: '',
-    archives: ''
+    archives: '',
+    commentActive: null
   }),
   actions: {
     async fetchGetPages() {
