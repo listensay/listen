@@ -39,9 +39,9 @@ const onLoad = async () => {
       <div v-for="item in homeArticleList" :key="item?.cid" class="mb-8">
         <div class="flex">
           <!-- 作者头像 -->
-          <div class="w-12 mr-4 flex-shrink-0">
+          <div class="w-12 mr-4 flex-shrink-0 max-md:mr-2">
             <img
-              class="w-12 h-12 rounded"
+              class="w-12 h-12 rounded max-md:w-10 max-md:h-10"
               :src="item?.categories[0].description"
               :alt="item?.categories[0].name"
             />

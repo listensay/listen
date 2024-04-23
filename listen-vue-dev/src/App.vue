@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>
+  <div class="shadow-md">
     <router-view />
   </div>
 </template>

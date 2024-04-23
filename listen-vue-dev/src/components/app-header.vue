@@ -31,24 +31,24 @@ const { website } = storeToRefs(homeStore)
           <div class="name m-4 text-white text-xl">
             {{ website.nickname ? website.nickname : '未设置昵称' }}
           </div>
-          <router-link to="/about">
-            <template v-if="website.logoUrl">
-              <img
-                :src="website.logoUrl"
-                width="75"
-                class="rounded shadow"
-                alt="avatar"
-              />
-            </template>
-            <template v-else>
-              <img
-                src="@/assets/images/avatar.jpg"
-                width="75"
-                class="rounded shadow"
-                alt="avatar"
-              />
-            </template>
-          </router-link>
+          <!-- <router-link to="/about"> -->
+          <template v-if="website.logoUrl">
+            <img
+              :src="website.logoUrl"
+              width="75"
+              class="rounded shadow"
+              alt="avatar"
+            />
+          </template>
+          <template v-else>
+            <img
+              src="@/assets/images/avatar.jpg"
+              width="75"
+              class="rounded shadow"
+              alt="avatar"
+            />
+          </template>
+          <!-- </router-link> -->
         </div>
       </div>
       <div class="mt-10 mx-8 text-right text-sm text-gray-500">

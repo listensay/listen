@@ -30,8 +30,9 @@ likes.indexOf(Number(props.cid)) != -1
 const selfLike = ref(props.article.likes)
 
 const onSelect = async (action) => {
-  if (action.text === '评论' || action.text === '取消评论') {
+  if (action.text === '评论' || action.text === '评论') {
     commentState.value = !commentState.value
+    mainStore.commentActive = null
     commentState.value ? (action.text = '取消评论') : (action.text = '评论')
   } else if (action.text === '点赞' || action.text === '取消点赞') {
     if (likes.indexOf(Number(props.cid)) == -1) {
@@ -83,11 +84,13 @@ getComments(props.cid)
 // 回复评论
 function reply(index) {
   mainStore.commentActive = index
+  commentState.value = false
 }
 
 // 取消回复评论
 function cancelReply() {
   mainStore.commentActive = null
+  commentState.value = false
 }
 </script>
 
@@ -136,6 +139,7 @@ function cancelReply() {
               <app-comments
                 :cid="cid"
                 @comment="getComments(cid)"
+                @cancelReply="cancelReply"
               ></app-comments>
             </div>
           </div>
