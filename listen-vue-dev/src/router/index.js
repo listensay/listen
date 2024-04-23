@@ -23,11 +23,15 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const homeStore = useHomeStore()
-  const mainStore = useMainStore()
+  try {
+    const homeStore = useHomeStore()
+    const mainStore = useMainStore()
 
-  await homeStore.fetchGetWebSit()
-  await mainStore.fetchGetPages()
+    await homeStore.fetchGetWebSit()
+    await mainStore.fetchGetPages()
+  } catch (error) {
+    console.log(error)
+  }
 
   next()
 })

@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHomeStore } from '@/store/module/home'
-import { regexImg, basicText, regexText } from '@/utils/articleHandle'
 
 const homeStore = useHomeStore()
 const { homeArticleList, pages } = storeToRefs(homeStore)
@@ -38,8 +37,8 @@ const onLoad = async () => {
       @load="onLoad"
     >
       <div v-for="item in homeArticleList" :key="item?.cid" class="mb-8">
-        <!-- {{ item.title }} -->
         <div class="flex">
+          <!-- 作者头像 -->
           <div class="w-12 mr-4 flex-shrink-0">
             <img
               class="w-12 h-12 rounded"
@@ -47,90 +46,24 @@ const onLoad = async () => {
               :alt="item?.categories[0].name"
             />
           </div>
+
           <div class="flex-1 pb-4 border-b-[1px] border-zinc-150 truncate">
+            <!-- 分类名称 -->
             <div class="text-[#5b6b92] mb-1">
               {{ item?.categories[0].name }}
             </div>
 
             <!-- 九宫格文章图片 -->
             <template v-if="item.fields.articleStyle?.value === 'imgGrid'">
-              <div class="relative">
-                <!-- 文章收缩 -->
-                <template v-if="item.fields.hiddenLine?.value === '1'">
-                  <TextOverflow class="content">
-                    <div
-                      v-html="regexText(item?.digest)"
-                      class="prose-sm"
-                    ></div>
-                  </TextOverflow>
-                </template>
-
-                <template v-else>
-                  <div v-html="regexText(item?.digest)" class="prose-sm"></div>
-                </template>
-              </div>
-              <!-- 图片 -->
-              <Fancybox
-                :options="{
-                  Carousel: {
-                    infinite: false
-                  }
-                }"
-              >
-                <div class="pic my-4 grid grid-cols-3 gap-2">
-                  <div
-                    v-for="imgUrl in regexImg(item?.digest)"
-                    :key="imgUrl"
-                    class="relative w-full pt-[100%]"
-                  >
-                    <a data-fancybox="gallery" :href="imgUrl">
-                      <img
-                        :src="imgUrl"
-                        class="top-0 absolute h-full object-cover"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </Fancybox>
+              <ArticleStyleImage :item="item"></ArticleStyleImage>
             </template>
 
+            <!-- 普通文章风格 -->
             <template v-else>
-              <div class="relative">
-                <!-- 文章收缩 -->
-                <template v-if="item?.fields?.hiddenLine?.value === '1'">
-                  <TextOverflow class="content">
-                    <div class="prose-sm">
-                      <Fancybox
-                        :options="{
-                          Carousel: {
-                            infinite: false
-                          }
-                        }"
-                      >
-                        <div v-html="basicText(item?.digest)"></div>
-                      </Fancybox>
-                    </div>
-                  </TextOverflow>
-                </template>
-
-                <template v-else>
-                  <div class="prose prose-sm">
-                    <Fancybox
-                      :options="{
-                        Carousel: {
-                          infinite: false
-                        }
-                      }"
-                    >
-                      <div
-                        v-html="basicText(item?.digest)"
-                        class="first:p:mt-0"
-                      ></div>
-                    </Fancybox>
-                  </div>
-                </template>
-              </div>
+              <ArticleStyleBase :item="item"></ArticleStyleBase>
             </template>
+
+            <!-- 评论点赞 -->
             <ArticleFooter
               :cid="item?.cid"
               :date="item?.date"

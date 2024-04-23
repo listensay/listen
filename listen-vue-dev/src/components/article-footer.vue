@@ -5,6 +5,8 @@ import service from '@/utils/request'
 import { showToast } from 'vant'
 import 'vant/es/toast/style'
 import Cookies from 'js-cookie'
+import { useHomeStore } from '@/store/module/home'
+import { useMainStore } from '@/store/main'
 
 const props = defineProps({
   cid: { type: String, default: -1 },
@@ -19,6 +21,7 @@ const actions = [
   { text: '点赞', icon: 'like-o' },
   { text: '评论', icon: 'chat-o' }
 ]
+
 const likes = JSON.parse(Cookies.get('likes') || '[]')
 likes.indexOf(Number(props.cid)) != -1
   ? (actions[0].text = '取消点赞')
@@ -65,6 +68,27 @@ const onSelect = async (action) => {
     }
   }
 }
+
+const homeStore = useHomeStore()
+const mainStore = useMainStore()
+const comments = ref('')
+
+// 获取评论列表
+async function getComments(cid) {
+  comments.value = await homeStore.fetchGetCommentsList(cid)
+}
+
+getComments(props.cid)
+
+// 回复评论
+function reply(index) {
+  mainStore.commentActive = index
+}
+
+// 取消回复评论
+function cancelReply() {
+  mainStore.commentActive = null
+}
 </script>
 
 <template>
@@ -102,7 +126,42 @@ const onSelect = async (action) => {
       </div>
     </template>
     <!-- 文章评论列表 -->
-    <ArticleComments :cid="cid" :commentState="commentState"></ArticleComments>
+    <div class="article-comments">
+      <!-- 评论列表 -->
+      <template v-if="comments.length !== 0 || commentState">
+        <div class="bg-zinc-100 my-4 mb-2 px-3 p-2 rounded">
+          <!-- 评论框 -->
+          <div class="bg-zinc-100 my-2 rounded" v-show="commentState">
+            <div class="p-2 box-border bg-white rounded h-full text-sm">
+              <app-comments
+                :cid="cid"
+                @comment="getComments(cid)"
+              ></app-comments>
+            </div>
+          </div>
+          <!-- 评论列表 -->
+          <div v-for="comment in comments" :key="comment.coid">
+            <!-- 嵌套评论 -->
+            <Comment
+              :comment="comment"
+              :cid="cid"
+              @reply="reply(comment.coid)"
+              @parentComments="cancelReply"
+              @refresh="getComments(cid)"
+            />
+            <template v-if="mainStore.commentActive === comment.coid">
+              <app-comments
+                :cid="cid"
+                @comment="getComments(cid)"
+                @cancelReply="cancelReply"
+                :isReply="true"
+                :replyID="comment.coid"
+              ></app-comments>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
